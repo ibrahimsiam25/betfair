@@ -1,7 +1,6 @@
 import 'package:betfair/core/routes/app_router.dart';
 import 'package:betfair/core/service/shared_preferences_singleton.dart';
-import 'package:betfair/core/constants/app_assets.dart';
-import 'package:betfair/features/onboarding/widgets/onboarding_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

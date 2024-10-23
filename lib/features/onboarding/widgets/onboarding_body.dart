@@ -34,7 +34,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
       );
     } else {
       SharedPref.setBool(kIsOnBoardingView, true);
-     GoRouter.of(context).go(AppRouter.kHomeView);
+     GoRouter.of(context).go(AppRouter.kBottomNav);
     }
   }
 

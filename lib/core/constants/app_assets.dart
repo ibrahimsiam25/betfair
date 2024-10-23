@@ -10,9 +10,21 @@ class Assets {
   /// assets/images/button.png
   static const String imagesButton = "assets/images/button.png";
 
+  /// Assets for imagesHome
+  /// assets/images/home.svg
+  static const String imagesHome = "assets/images/home.svg";
+
+  /// Assets for imagesIcRoundReportProblem
+  /// assets/images/ic_round-report-problem.svg
+  static const String imagesIcRoundReportProblem = "assets/images/ic_round-report-problem.svg";
+
   /// Assets for imagesMan
   /// assets/images/man.png
   static const String imagesMan = "assets/images/man.png";
+
+  /// Assets for imagesMingcuteNewsFill
+  /// assets/images/mingcute_news-fill.svg
+  static const String imagesMingcuteNewsFill = "assets/images/mingcute_news-fill.svg";
 
   /// Assets for imagesOnBoarding1
   /// assets/images/onBoarding_1.png
