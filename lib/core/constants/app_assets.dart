@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/background.png
   static const String imagesBackground = "assets/images/background.png";
 
+  /// Assets for imagesBiBack
+  /// assets/images/bi_back.png
+  static const String imagesBiBack = "assets/images/bi_back.png";
+
   /// Assets for imagesButton
   /// assets/images/button.png
   static const String imagesButton = "assets/images/button.png";
@@ -33,6 +37,14 @@ class Assets {
   /// Assets for imagesOnBoarding2
   /// assets/images/onBoarding_2.png
   static const String imagesOnBoarding2 = "assets/images/onBoarding_2.png";
+
+  /// Assets for imagesStar
+  /// assets/images/Star.png
+  static const String imagesStar = "assets/images/Star.png";
+
+  /// Assets for imagesStarEmpty
+  /// assets/images/StarEmpty.png
+  static const String imagesStarEmpty = "assets/images/StarEmpty.png";
 
   /// Assets for imagesYellowBackground
   /// assets/images/yellowBackground.png
