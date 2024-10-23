@@ -63,7 +63,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
               ),
             ),
             CustomButton(
-              text: "Continue",
+              text: "CONTINUE",
               onPressed: _onContinuePressed, // Call the function here
             ),
             SizedBox(height: 32.h),

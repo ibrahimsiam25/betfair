@@ -1,4 +1,5 @@
 import 'package:betfair/core/theme/app_colors.dart';
+import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:betfair/features/home/widgets/custom_avatar.dart';
 import 'package:betfair/features/home/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +55,14 @@ class HomeViewBody extends StatelessWidget {
                     style:
                         AppTextStyles.fontWhiteW700.copyWith(fontSize: 24.sp),
                     textAlign: TextAlign.center,
+                  ),
+                  CustomButton(
+                    text: "Add fear",
+                    onPressed: () {},
+                  ),
+                    CustomButton(
+                    text: "Add offender",
+                    onPressed: () {},
                   )
                 ],
               ),

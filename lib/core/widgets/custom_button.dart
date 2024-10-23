@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
               fit: BoxFit.cover, 
             ),
             Text(
-              text.toUpperCase(),
+              text,
               style: AppTextStyles.fontBlackW700.copyWith(fontSize: 24.sp),
             ),
           ],
