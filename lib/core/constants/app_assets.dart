@@ -34,6 +34,10 @@ class Assets {
   /// assets/images/man.png
   static const String imagesMan = "assets/images/man.png";
 
+  /// Assets for imagesMethodsBack
+  /// assets/images/methods_back.png
+  static const String imagesMethodsBack = "assets/images/methods_back.png";
+
   /// Assets for imagesMingcuteNewsFill
   /// assets/images/mingcute_news-fill.svg
   static const String imagesMingcuteNewsFill = "assets/images/mingcute_news-fill.svg";
@@ -49,6 +53,10 @@ class Assets {
   /// Assets for imagesReviewAvatar
   /// assets/images/review_avatar.png
   static const String imagesReviewAvatar = "assets/images/review_avatar.png";
+
+  /// Assets for imagesReviewsBack
+  /// assets/images/reviews_back.png
+  static const String imagesReviewsBack = "assets/images/reviews_back.png";
 
   /// Assets for imagesSend
   /// assets/images/send.png

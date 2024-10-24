@@ -11,78 +11,85 @@ class MethodsReviews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 550.h,
-          padding:
-              EdgeInsets.only(left: 24.w, right: 24.h, top: 16.h, bottom: 16.h),
-          decoration: BoxDecoration(
-            color: AppColors.darkPrimary.withAlpha(80),
-            borderRadius: BorderRadius.circular(12.r),
-          ),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  ...List.generate(
-                    8,
-                    (index) {
-                      return MethodsReviewsElement(
-                        divide: index == 7 ? false : true,
-                        reviewModel: ReviewModel(
-                          name: 'Wade Warren',
-                          description: 'Doesn\'t help at all',
-                          rate: 1,
-                        ),
-                      );
-                    },
-                  ),
-                ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            height: 550.h,
+            padding: EdgeInsets.only(
+                left: 24.w, right: 24.h, top: 16.h, bottom: 16.h),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(Assets.imagesReviewsBack),
+                fit: BoxFit.fill,
               ),
-              const Spacer(),
-              SizedBox(
-                height: 24.h,
-                child: Stack(
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        Assets.imagesTextField,
-                        fit: BoxFit.fill,
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 494.h,
+                  child: ListView(
+                    children: [
+                      ...List.generate(
+                        8,
+                        (index) {
+                          return MethodsReviewsElement(
+                            divide: index == 7 ? false : true,
+                            reviewModel: ReviewModel(
+                              name: 'Wade Warren',
+                              description: 'Doesn\'t help at all',
+                              rate: 1,
+                            ),
+                          );
+                        },
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintStyle: TextStyle(
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 24.h,
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Image.asset(
+                          Assets.imagesTextField,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 12.w, bottom: 10.h),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintStyle: TextStyle(
+                              color: AppColors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                          style: TextStyle(
                             color: AppColors.white,
                             fontSize: 12,
                           ),
                         ),
-                        style: TextStyle(
-                          color: AppColors.white,
-                          fontSize: 12,
+                      ),
+                      Positioned(
+                        right: 12.w,
+                        top: 0,
+                        bottom: 0,
+                        child: Image.asset(
+                          width: 16.w,
+                          Assets.imagesSend,
                         ),
-                      ),
-                    ),
-                    Positioned(
-                      right: 12.w,
-                      top: 0,
-                      bottom: 0,
-                      child: Image.asset(
-                        width: 16.w,
-                        Assets.imagesSend,
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: MediaQuery.of(context).size.height - 550.h),
+        ],
+      ),
     );
   }
 }

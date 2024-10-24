@@ -1,3 +1,4 @@
+import 'package:betfair/core/constants/app_assets.dart';
 import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/features/methods/data/model/method_model.dart';
 import 'package:flutter/material.dart';
@@ -43,9 +44,11 @@ class MethodsElementDetails extends StatelessWidget {
         Container(
           padding:
               EdgeInsets.only(left: 24.w, right: 24.h, top: 24.h, bottom: 80.h),
-          decoration: BoxDecoration(
-            color: AppColors.darkPrimary.withAlpha(80),
-            borderRadius: BorderRadius.circular(12.r),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Assets.imagesMethodsBack),
+              fit: BoxFit.fill,
+            ),
           ),
           child: Text(
             methodModel.description,
