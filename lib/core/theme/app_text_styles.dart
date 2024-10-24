@@ -30,4 +30,9 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.white,
   );
+    static TextStyle fontWhiteW500 = const TextStyle(
+    decoration: TextDecoration.none,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white,
+  );
 }
