@@ -10,10 +10,10 @@ class MingcuteViewBody extends StatefulWidget {
   final int totalStars;
 
   const MingcuteViewBody({
-    Key? key,
+    super.key,
     this.rating = 1.3,
     this.totalStars = 5,
-  }) : super(key: key);
+  });
 
   @override
   State<MingcuteViewBody> createState() => _MingcuteViewBodyState();
@@ -24,8 +24,10 @@ class _MingcuteViewBodyState extends State<MingcuteViewBody> {
     int filledStars = widget.rating.floor();
     int emptyStars = max(widget.totalStars - filledStars, 0);
 
-    return List<Widget>.generate(filledStars, (index) => _buildStar(isFilled: true))
-      ..addAll(List<Widget>.generate(emptyStars, (index) => _buildStar(isFilled: false)));
+    return List<Widget>.generate(
+        filledStars, (index) => _buildStar(isFilled: true))
+      ..addAll(List<Widget>.generate(
+          emptyStars, (index) => _buildStar(isFilled: false)));
   }
 
   Widget _buildStar({required bool isFilled}) {
@@ -61,7 +63,8 @@ class _MingcuteViewBodyState extends State<MingcuteViewBody> {
                   children: [
                     Text(
                       "Cognitive behavioural therapy (CBT)",
-                      style: AppTextStyles.fontBlackW700.copyWith(fontSize: 14.sp),
+                      style:
+                          AppTextStyles.fontBlackW700.copyWith(fontSize: 14.sp),
                     ),
                     Align(
                       alignment: Alignment.centerLeft,
@@ -71,7 +74,8 @@ class _MingcuteViewBodyState extends State<MingcuteViewBody> {
                           const SizedBox(width: 4),
                           Text(
                             "${widget.rating} (67)",
-                            style: AppTextStyles.fontBlackW700.copyWith(fontSize: 14.sp),
+                            style: AppTextStyles.fontBlackW700
+                                .copyWith(fontSize: 14.sp),
                           ),
                         ],
                       ),
@@ -79,10 +83,7 @@ class _MingcuteViewBodyState extends State<MingcuteViewBody> {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {
-                    
-                  },
-                  child: Image.asset(Assets.imagesBiBack)),
+                    onTap: () {}, child: Image.asset(Assets.imagesBiBack)),
               ],
             ),
           ),
