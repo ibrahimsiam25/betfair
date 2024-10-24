@@ -9,6 +9,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../fears/views/fears_view.dart';
 
 class BottomNavigationBarController extends StatefulWidget {
   const BottomNavigationBarController({super.key});
@@ -38,11 +39,7 @@ class _BottomNavigationBarControllerState
 
   List<Widget> buildScreens() {
     return [
-      const Scaffold(
-        body: Center(
-          child: Text('Exercise'),
-        ),
-      ),
+    const FearsView(),
       const HomeView(),
       const MethodsView()
     ];
