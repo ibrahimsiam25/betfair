@@ -18,9 +18,9 @@ class Assets {
   /// assets/images/button.png
   static const String imagesButton = "assets/images/button.png";
 
-  /// Assets for imagesCustomtextField
-  /// assets/images/customtextField.svg
-  static const String imagesCustomtextField = "assets/images/customtextField.svg";
+  /// Assets for imagesCalendar
+  /// assets/images/calendar.svg
+  static const String imagesCalendar = "assets/images/calendar.svg";
 
   /// Assets for imagesHome
   /// assets/images/home.svg

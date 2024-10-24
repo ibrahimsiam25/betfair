@@ -19,7 +19,7 @@ class FearsViewBody extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: IconButton(onPressed: (){
-            GoRouter.of(context).push(AppRouter.kNewFears);
+            GoRouter.of(context).push(AppRouter.kNewOneFears);
           }, icon:  SvgPicture.asset(
             width: 32.w,
                 height:32.h,

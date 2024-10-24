@@ -17,7 +17,9 @@ class NewFearAppBar extends StatelessWidget {
       Transform.translate(
         offset:const Offset(0, -5), // تحريك للأعلى بمقدار -5 (يمكنك تغيير هذه القيمة)
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           child: Text(
             "Back",
             style: AppTextStyles.fontPrimaryW500.copyWith(
