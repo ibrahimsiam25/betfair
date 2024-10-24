@@ -31,7 +31,7 @@ class NewFearsViewBody extends StatelessWidget {
                 ),
                 SizedBox(height: 3.h),
 
- const CustomTextField(),
+ CustomTextField(),
 
 
             ]),
