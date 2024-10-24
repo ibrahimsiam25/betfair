@@ -46,6 +46,10 @@ class Assets {
   /// assets/images/review_avatar.png
   static const String imagesReviewAvatar = "assets/images/review_avatar.png";
 
+  /// Assets for imagesSend
+  /// assets/images/send.png
+  static const String imagesSend = "assets/images/send.png";
+
   /// Assets for imagesStar
   /// assets/images/Star.png
   static const String imagesStar = "assets/images/Star.png";
@@ -53,6 +57,10 @@ class Assets {
   /// Assets for imagesStarEmpty
   /// assets/images/StarEmpty.png
   static const String imagesStarEmpty = "assets/images/StarEmpty.png";
+
+  /// Assets for imagesTextField
+  /// assets/images/text_field.png
+  static const String imagesTextField = "assets/images/text_field.png";
 
   /// Assets for imagesYellowBackground
   /// assets/images/yellowBackground.png
