@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:betfair/features/fears/views/fears_view.dart';
 import 'package:betfair/features/home/views/home_view.dart';
+import 'package:betfair/features/methods/views/methods_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,7 +44,7 @@ class _BottomNavigationBarControllerState
         ),
       ),
       const HomeView(),
-      const FearsView()
+      const MethodsView()
     ];
   }
 

@@ -6,17 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_text_styles.dart';
-import '../data/model/fear_model.dart';
+import '../data/model/method_model.dart';
 
-class FearElement extends StatelessWidget {
-  final FearModel fearModel;
-  const FearElement({
+class MethodElement extends StatelessWidget {
+  final MethodModel methodModel;
+  const MethodElement({
     super.key,
-    required this.fearModel,
+    required this.methodModel,
   });
   List<Widget> _buildStars() {
-    int filledStars = fearModel.rating.floor();
-    int emptyStars = max(fearModel.totalStars - filledStars, 0);
+    int filledStars = methodModel.rating.floor();
+    int emptyStars = max(methodModel.totalStars - filledStars, 0);
 
     return List<Widget>.generate(
         filledStars, (index) => _buildStar(isFilled: true))
@@ -54,7 +54,7 @@ class FearElement extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  fearModel.title,
+                  methodModel.title,
                   overflow: TextOverflow.clip,
                   style: AppTextStyles.fontBlackW700.copyWith(fontSize: 14.sp),
                 ),
@@ -65,7 +65,7 @@ class FearElement extends StatelessWidget {
                       ..._buildStars(),
                       const SizedBox(width: 4),
                       Text(
-                        "${fearModel.rating} (${fearModel.totalRatings})",
+                        "${methodModel.rating} (${methodModel.totalRatings})",
                         style: AppTextStyles.fontBlackW700
                             .copyWith(fontSize: 14.sp),
                       ),

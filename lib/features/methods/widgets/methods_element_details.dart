@@ -1,15 +1,16 @@
 import 'package:betfair/core/theme/app_colors.dart';
-import 'package:betfair/features/fears/data/model/fear_model.dart';
+import 'package:betfair/features/methods/data/model/method_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theme/app_text_styles.dart';
 
-class FearElementDetails extends StatelessWidget {
-  final FearModel fearModel;
-  const FearElementDetails({
+class MethodsElementDetails extends StatelessWidget {
+  final MethodModel methodModel;
+
+  const MethodsElementDetails({
     super.key,
-    required this.fearModel,
+    required this.methodModel,
   });
 
   @override
@@ -27,7 +28,7 @@ class FearElementDetails extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              fearModel.title,
+              methodModel.title,
               textAlign: TextAlign.center,
               style: AppTextStyles.fontBlackW700.copyWith(
                 fontSize: 24.sp,
@@ -47,7 +48,7 @@ class FearElementDetails extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
           ),
           child: Text(
-            fearModel.description,
+            methodModel.description,
             style: AppTextStyles.fontBlackW700.copyWith(
               fontSize: 14.sp,
               color: AppColors.white,

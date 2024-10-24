@@ -7,11 +7,11 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.text,
-    required this.onPressed, // Added here
+    this.onPressed, // Added here
   });
 
   final String text;
-  final Function() onPressed; // Corrected declaration
+  final Function()? onPressed; // Corrected declaration
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +24,8 @@ class CustomButton extends StatelessWidget {
           alignment: Alignment.center, // Center the text over the image
           children: [
             Image.asset(
-        
-              Assets.imagesButton, 
-        
-              fit: BoxFit.cover, 
+              Assets.imagesButton,
+              fit: BoxFit.cover,
             ),
             Text(
               text,
