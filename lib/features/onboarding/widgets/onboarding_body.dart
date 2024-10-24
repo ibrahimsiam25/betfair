@@ -6,20 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-
 import '../../../core/constants/app_constants.dart';
 import '../../../core/routes/app_router.dart';
-import '../../../core/theme/app_text_styles.dart';
-import '../../home/views/home_view.dart';
 
 class OnboardingBody extends StatefulWidget {
   const OnboardingBody({super.key});
 
   @override
-  _OnboardingBodyState createState() => _OnboardingBodyState();
+  OnboardingBodyState createState() => OnboardingBodyState();
 }
 
-class _OnboardingBodyState extends State<OnboardingBody> {
+class OnboardingBodyState extends State<OnboardingBody> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -34,7 +31,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
       );
     } else {
       SharedPref.setBool(kIsOnBoardingView, true);
-     GoRouter.of(context).go(AppRouter.kBottomNav);
+      GoRouter.of(context).go(AppRouter.kBottomNav);
     }
   }
 
@@ -53,7 +50,8 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return CustomOnboardingItem(
-                    index: index,);
+                    index: index,
+                  );
                 },
                 onPageChanged: (index) {
                   setState(() {
@@ -72,6 +70,4 @@ class _OnboardingBodyState extends State<OnboardingBody> {
       ),
     );
   }
-
-
 }

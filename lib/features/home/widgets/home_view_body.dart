@@ -1,4 +1,3 @@
-import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:betfair/features/home/widgets/custom_avatar.dart';
 import 'package:betfair/features/home/widgets/home_app_bar.dart';
@@ -35,7 +34,7 @@ class HomeViewBody extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  HomeAppBar(),
+                  const HomeAppBar(),
                   Text(
                     "Progress of Courage",
                     style:
@@ -60,7 +59,7 @@ class HomeViewBody extends StatelessWidget {
                     text: "Add fear",
                     onPressed: () {},
                   ),
-                    CustomButton(
+                  CustomButton(
                     text: "Add offender",
                     onPressed: () {},
                   )

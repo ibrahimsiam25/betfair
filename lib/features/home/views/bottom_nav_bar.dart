@@ -1,9 +1,12 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:betfair/features/fears/views/fears_view.dart';
 import 'package:betfair/features/home/views/home_view.dart';
-import 'package:betfair/features/mingcute/views/mingcute_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+
 import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -41,33 +44,32 @@ class _BottomNavigationBarControllerState
         ),
       ),
       const HomeView(),
-      const MingcuteView()
+      const FearsView()
     ];
   }
 
   List<PersistentBottomNavBarItem> navBarsItems() {
-  return [
-    PersistentBottomNavBarItem(
-      icon: CustomIcon(
-        asset: Assets.imagesIcRoundReportProblem,
-        isSelected: selectedIndex == 0,
+    return [
+      PersistentBottomNavBarItem(
+        icon: CustomIcon(
+          asset: Assets.imagesIcRoundReportProblem,
+          isSelected: selectedIndex == 0,
+        ),
       ),
-    ),
-    PersistentBottomNavBarItem(
-      icon: CustomIcon(
-        asset: Assets.imagesHome,
-        isSelected: selectedIndex == 1,
+      PersistentBottomNavBarItem(
+        icon: CustomIcon(
+          asset: Assets.imagesHome,
+          isSelected: selectedIndex == 1,
+        ),
       ),
-    ),
-    PersistentBottomNavBarItem(
-      icon: CustomIcon(
-        asset: Assets.imagesMingcuteNewsFill,
-        isSelected: selectedIndex == 2,
+      PersistentBottomNavBarItem(
+        icon: CustomIcon(
+          asset: Assets.imagesMingcuteNewsFill,
+          isSelected: selectedIndex == 2,
+        ),
       ),
-    ),
-  ];
-}
-
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +87,6 @@ class _BottomNavigationBarControllerState
             color: AppColors.shadow.withOpacity(0.3),
             spreadRadius: 3,
             blurRadius: 15,
-          
           ),
         ],
       ),
@@ -107,14 +108,14 @@ class CustomIcon extends StatelessWidget {
   final bool isSelected;
 
   const CustomIcon({
-    Key? key,
+    super.key,
     required this.asset,
     required this.isSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 40.w,
       height: 40.h,
       child: SvgPicture.asset(

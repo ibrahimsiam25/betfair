@@ -1,5 +1,4 @@
 import 'package:betfair/features/home/views/bottom_nav_bar.dart';
-import 'package:betfair/features/home/views/home_view.dart';
 import 'package:betfair/features/onboarding/views/onboarding_view.dart';
 import 'package:go_router/go_router.dart';
 
