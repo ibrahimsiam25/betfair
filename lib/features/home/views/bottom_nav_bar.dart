@@ -1,11 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:betfair/features/fears/views/fears_view.dart';
 import 'package:betfair/features/home/views/home_view.dart';
-import 'package:betfair/features/mingcute/views/mingcute_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+
 import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_colors.dart';
 
@@ -43,7 +44,7 @@ class _BottomNavigationBarControllerState
         ),
       ),
       const HomeView(),
-      const MingcuteView()
+      const FearsView()
     ];
   }
 
