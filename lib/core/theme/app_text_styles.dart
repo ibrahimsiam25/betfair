@@ -20,6 +20,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.black,
   );
+  static TextStyle fontBlackW400 = const TextStyle(
+    decoration: TextDecoration.none,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+  );
   static TextStyle fontWhiteW700 = const TextStyle(
     decoration: TextDecoration.none,
     fontWeight: FontWeight.w700,

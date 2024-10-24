@@ -8,8 +8,13 @@ class NewFearsThreeView extends StatelessWidget {
 final Map<String, dynamic> fearsMap ;
   @override
   Widget build(BuildContext context) {
-    print(fearsMap);
-    return const CustomScaffold(body: 
-      SafeArea(child: NewFearsThreeViewBody()));
+ 
+    return  CustomScaffold(body: 
+      SafeArea(child: NewFearsThreeViewBody(
+fearsMap:  fearsMap
+      )));
   }
 }
+
+
+

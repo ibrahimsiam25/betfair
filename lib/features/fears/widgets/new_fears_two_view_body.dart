@@ -14,9 +14,9 @@ import '../../../core/widgets/show_custom_snack_bar.dart';
 
 class NewFearsTwoViewBody extends StatefulWidget {
   const NewFearsTwoViewBody(
-      {super.key, required this.fears, required this.howLong});
-  final String fears;
-  final String howLong;
+      {super.key, required this.fearsMap, });
+  final Map<String, dynamic> fearsMap;
+ 
 
   @override
   State<NewFearsTwoViewBody> createState() => _NewFearsTwoViewBodyState();
@@ -35,10 +35,11 @@ class _NewFearsTwoViewBodyState extends State<NewFearsTwoViewBody> {
       GoRouter.of(context).push(
         AppRouter.kNewThreeFears,
         extra: {
-          kFears: widget.fears,
-          kHowLong: widget.howLong,
+          kFears: widget.fearsMap[kFears],
+          kHowLong: widget.fearsMap[kHowLong],
           kDate: textFieldValueOne,
           kControlMethods: textFieldValueTwo,
+          
         },
       );
     }

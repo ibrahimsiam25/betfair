@@ -9,10 +9,12 @@ double kRadius36 = 36.0.r;
 
 const String kIsOnBoardingView = 'isOnBoardingView';
 
+const String kFearsListShardPref = 'fearsListShardPref';
 const String kFears = 'fears';
 const String kHowLong = 'howLong';
 const String kDate = 'date';
 const String kControlMethods = 'controlMethods';
+const String kRateLevelFear = 'rateLevelFear';
 
 
  const List<String> buttonLabels = [

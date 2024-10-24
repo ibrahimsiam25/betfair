@@ -1,4 +1,4 @@
-import 'package:betfair/core/constants/app_constants.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/custom_scaffold.dart';
@@ -11,8 +11,8 @@ final Map<String , dynamic> fearsMap;
   Widget build(BuildContext context) {
    
     return  CustomScaffold(body: SafeArea(child: NewFearsTwoViewBody(
-      fears: fearsMap[kFears],
-      howLong: fearsMap[kHowLong],
+      fearsMap: fearsMap,
+     
     )));
   }
 }
