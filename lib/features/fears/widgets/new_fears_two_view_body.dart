@@ -3,7 +3,10 @@ import 'package:betfair/features/fears/widgets/new_fear_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/app_constants.dart';
+import '../../../core/routes/app_router.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text_feild.dart';
@@ -29,13 +32,15 @@ class _NewFearsTwoViewBodyState extends State<NewFearsTwoViewBody> {
         "Please enter all fields",
       );
     } else {
-      // GoRouter.of(context).push(
-      //   AppRouter.kNewTwoFears,
-      //   extra: {
-      //     kFears: textFieldValue,
-      //     kHowLong: buttonLabels[selectedDurationIndex],
-      //   },
-      // );
+      GoRouter.of(context).push(
+        AppRouter.kNewThreeFears,
+        extra: {
+          kFears: widget.fears,
+          kHowLong: widget.howLong,
+          kDate: textFieldValueOne,
+          kControlMethods: textFieldValueTwo,
+        },
+      );
     }
   }
 

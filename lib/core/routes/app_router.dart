@@ -35,7 +35,9 @@ abstract class AppRouter {
         ),
       ),   GoRoute(
         path: kNewThreeFears,
-        builder: (context, state) => const NewFearsThreeView(),
+        builder: (context, state) =>  NewFearsThreeView(
+          fearsMap: state.extra as Map<String, dynamic>,
+        ),
       ),
     ],
   );
