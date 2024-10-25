@@ -58,53 +58,60 @@ class _NewFearsViewBodyState extends State<NewFearsViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
-      child: Column(
-        children: [
-          const NewFearAppBar(),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 28.w),
+    return Column(
+      children: [
+        SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 16.h),
-                Text(
-                  "Who or what are you afraid of?",
-                  style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
+                const NewFearAppBar(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 28.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 16.h),
+                      Text(
+                        "Who or what are you afraid of?",
+                        style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
+                      ),
+                      SizedBox(height: 3.h),
+                      CustomTextField(
+                        onChanged: (value) {
+                          setState(() {
+                            textFieldValue = value;
+                          });
+                        },
+                      ),
+                      SizedBox(height: 8.h),
+                      Text(
+                        "How long has it been bothering you?",
+                        style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
+                      ),
+                      SizedBox(height: 3.h),
+                      ...List.generate(buttonLabels.length, (index) {
+                        return MyButton(
+                          label: buttonLabels[index],
+                          opacity: opacities[index],
+                          onPressed: () => _onButtonPressed(index),
+                        );
+                      }),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 3.h),
-                CustomTextField(
-                  onChanged: (value) {
-                    setState(() {
-                      textFieldValue = value;
-                    });
-                  },
-                ),
-                SizedBox(height: 8.h),
-                Text(
-                  "How long has it been bothering you?",
-                  style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
-                ),
-                SizedBox(height: 3.h),
-                ...List.generate(buttonLabels.length, (index) {
-                  return MyButton(
-                    label: buttonLabels[index],
-                    opacity: opacities[index],
-                    onPressed: () => _onButtonPressed(index),
-                  );
-                }),
+            
               ],
             ),
           ),
-          const Spacer(),
+        ),
+                const Spacer(),
           CustomButton(
             text: "NEXT",
             onPressed: _onNextPressed,
           ),
           SizedBox(height: 16.h),
-        ],
-      ),
+      ],
     );
   }
 }
