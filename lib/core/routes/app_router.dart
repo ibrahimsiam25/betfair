@@ -1,5 +1,6 @@
 import 'package:betfair/features/home/views/bottom_nav_bar.dart';
 import 'package:betfair/features/onboarding/views/onboarding_view.dart';
+import 'package:betfair/features/settings/views/settings_view.dart';
 import 'package:betfair/features/test/views/instructions_view.dart';
 import 'package:betfair/features/test/views/situation_view.dart';
 import 'package:betfair/features/test/views/test_view.dart';
@@ -21,6 +22,7 @@ abstract class AppRouter {
   static const String kSituation = '/situation';
   static const String kSituationSave = '/situationSave';
   static const String kSituationFinal = '/situationFinal';
+  static const String Ksettings = '/settings';
 
   static final router = GoRouter(
     routes: [
@@ -63,12 +65,17 @@ abstract class AppRouter {
           builder: (context, state) {
             return const SituationView();
           }),
-              GoRoute(
+      GoRoute(
           path: kSituationSave,
           builder: (context, state) {
-            return  SituationSaveView(
+            return SituationSaveView(
               rateOfSituation: state.extra as List<int>,
             );
+          }),
+      GoRoute(
+          path: Ksettings,
+          builder: (context, state) {
+            return const SettingsView();
           }),
     ],
   );
