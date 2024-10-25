@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/fears/views/new_fears_one_view.dart';
 import '../../features/fears/views/new_fears_three_view.dart';
 import '../../features/fears/views/new_fears_two_view.dart';
+import '../../features/test/views/situation_save_view.dart';
 
 abstract class AppRouter {
   static const String kOnBoardingView = '/onBoardingView';
@@ -18,6 +19,9 @@ abstract class AppRouter {
   static const String kTest = '/test';
   static const String kInstructions = '/instructions';
   static const String kSituation = '/situation';
+  static const String kSituationSave = '/situationSave';
+  static const String kSituationFinal = '/situationFinal';
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -58,6 +62,13 @@ abstract class AppRouter {
           path: kSituation,
           builder: (context, state) {
             return const SituationView();
+          }),
+              GoRoute(
+          path: kSituationSave,
+          builder: (context, state) {
+            return  SituationSaveView(
+              rateOfSituation: state.extra as List<int>,
+            );
           }),
     ],
   );

@@ -20,6 +20,7 @@ class SituationPageView extends StatelessWidget {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
       child: PageView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         itemCount: situationData.length,
         onPageChanged: onPageChanged,
