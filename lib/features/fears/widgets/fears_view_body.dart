@@ -9,7 +9,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/functions/save_and_get_map_to_list_with_shared_pref.dart';
 import '../../../core/routes/app_router.dart';
-import '../../../core/theme/app_text_styles.dart';
 
 class FearsViewBody extends StatefulWidget {
   const FearsViewBody({super.key});
