@@ -1,4 +1,5 @@
 import 'package:betfair/core/constants/app_assets.dart';
+import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,12 +8,12 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.text,
-    this.onPressed, // Added here
+    this.onPressed, this.fontColor, // Added here
   });
 
   final String text;
   final Function()? onPressed; // Corrected declaration
-
+  final Color? fontColor;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,7 +30,9 @@ class CustomButton extends StatelessWidget {
             ),
             Text(
               text,
-              style: AppTextStyles.fontBlackW700.copyWith(fontSize: 24.sp),
+              style: AppTextStyles.fontBlackW700.copyWith(
+                color: fontColor ?? AppColors.black,
+                fontSize: 24.sp),
             ),
           ],
         ),
