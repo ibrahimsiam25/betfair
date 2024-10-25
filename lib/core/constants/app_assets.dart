@@ -78,6 +78,10 @@ class Assets {
   /// assets/images/StarEmpty.png
   static const String imagesStarEmpty = "assets/images/StarEmpty.png";
 
+  /// Assets for imagesTest
+  /// assets/images/test.png
+  static const String imagesTest = "assets/images/test.png";
+
   /// Assets for imagesTextField
   /// assets/images/text_field.png
   static const String imagesTextField = "assets/images/text_field.png";
