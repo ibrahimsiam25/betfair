@@ -10,10 +10,10 @@ import 'new_fear_app_bar.dart';
 
 class NewFearsThreeViewBody extends StatelessWidget {
   const NewFearsThreeViewBody({super.key, required this.fearsMap});
-final Map<String, dynamic> fearsMap;
+  final Map<String, dynamic> fearsMap;
   @override
   Widget build(BuildContext context) {
-   int  rateLevelFear =5;
+    int rateLevelFear = 5;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       child: Column(
@@ -30,13 +30,14 @@ final Map<String, dynamic> fearsMap;
                   child: Text(
                     "Rate your level of fear or anxiety on a scale of 0 to 10, with 0 being ‘not at all afraid’ and 10 being ‘extremely afraid’.",
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 12.sp),
+                    style:
+                        AppTextStyles.fontWhiteW400.copyWith(fontSize: 12.sp),
                   ),
                 ),
                 SizedBox(height: 20.h),
                 GradientSlider(
                   onChanged: (value) {
-rateLevelFear = value.toInt();
+                    rateLevelFear = value.toInt();
                   },
                 )
               ],
@@ -45,17 +46,16 @@ rateLevelFear = value.toInt();
           const Spacer(),
           CustomButton(
             text: "SAVE",
-            onPressed: ()async {
-              
- await saveMapToListInSharedPref(key: kFearsListShardPref, newMap: {
-    kFears: fearsMap[kFears],
-    kHowLong: fearsMap[kHowLong],
-    kDate: fearsMap[kDate],
-    kControlMethods: fearsMap[kControlMethods],
-    kRateLevelFear: rateLevelFear
-  
-  });
-
+            onPressed: () async {
+              await saveMapToListInSharedPref(
+                  key: kFearsListShardPref,
+                  newMap: {
+                    kFears: fearsMap[kFears],
+                    kHowLong: fearsMap[kHowLong],
+                    kDate: fearsMap[kDate],
+                    kControlMethods: fearsMap[kControlMethods],
+                    kRateLevelFear: rateLevelFear
+                  });
             },
           ),
           SizedBox(height: 16.h),
