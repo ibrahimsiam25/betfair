@@ -38,9 +38,9 @@ class Assets {
   /// assets/images/man.png
   static const String imagesMan = "assets/images/man.png";
 
-  /// Assets for imagesMethodsBack
-  /// assets/images/methods_back.png
-  static const String imagesMethodsBack = "assets/images/methods_back.png";
+  /// Assets for imagesMethodBack
+  /// assets/images/method_back.png
+  static const String imagesMethodBack = "assets/images/method_back.png";
 
   /// Assets for imagesMingcuteNewsFill
   /// assets/images/mingcute_news-fill.svg
@@ -66,9 +66,9 @@ class Assets {
   /// assets/images/review_avatar.png
   static const String imagesReviewAvatar = "assets/images/review_avatar.png";
 
-  /// Assets for imagesReviewsBack
-  /// assets/images/reviews_back.png
-  static const String imagesReviewsBack = "assets/images/reviews_back.png";
+  /// Assets for imagesReviewBack
+  /// assets/images/review_back.png
+  static const String imagesReviewBack = "assets/images/review_back.png";
 
   /// Assets for imagesSend
   /// assets/images/send.png

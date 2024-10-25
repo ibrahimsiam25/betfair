@@ -46,7 +46,7 @@ class MethodsElementDetails extends StatelessWidget {
               EdgeInsets.only(left: 24.w, right: 24.h, top: 24.h, bottom: 80.h),
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(Assets.imagesMethodsBack),
+              image: AssetImage(Assets.imagesMethodBack),
               fit: BoxFit.fill,
             ),
           ),
