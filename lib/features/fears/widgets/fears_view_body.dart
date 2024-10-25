@@ -56,9 +56,14 @@ class _FearsViewBodyState extends State<FearsViewBody> {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             itemCount: listOfMaps.length,
             itemBuilder: (context, index) {
-              return FearsElement(
-                fear: listOfMaps[index][kFears],
-                rate: listOfMaps[index][kRateLevelFear],
+              return InkWell(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kEditFear);
+                },
+                child: FearsElement(
+                  fear: listOfMaps[index][kFears],
+                  rate: listOfMaps[index][kRateLevelFear],
+                ),
               );
             },
           ),

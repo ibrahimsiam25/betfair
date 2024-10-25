@@ -22,9 +22,21 @@ class Assets {
   /// assets/images/calendar.svg
   static const String imagesCalendar = "assets/images/calendar.svg";
 
+  /// Assets for imagesCircleAdd
+  /// assets/images/circle_add.svg
+  static const String imagesCircleAdd = "assets/images/circle_add.svg";
+
+  /// Assets for imagesCircleAddSign
+  /// assets/images/circle_add_sign.svg
+  static const String imagesCircleAddSign = "assets/images/circle_add_sign.svg";
+
   /// Assets for imagesDown
   /// assets/images/down.svg
   static const String imagesDown = "assets/images/down.svg";
+
+  /// Assets for imagesEditFearBack
+  /// assets/images/edit_fear_back.png
+  static const String imagesEditFearBack = "assets/images/edit_fear_back.png";
 
   /// Assets for imagesHome
   /// assets/images/home.svg
@@ -33,6 +45,10 @@ class Assets {
   /// Assets for imagesIcRoundReportProblem
   /// assets/images/ic_round-report-problem.svg
   static const String imagesIcRoundReportProblem = "assets/images/ic_round-report-problem.svg";
+
+  /// Assets for imagesImpactTextfield
+  /// assets/images/impact_textfield.png
+  static const String imagesImpactTextfield = "assets/images/impact_textfield.png";
 
   /// Assets for imagesMan
   /// assets/images/man.png
@@ -45,6 +61,10 @@ class Assets {
   /// Assets for imagesMingcuteNewsFill
   /// assets/images/mingcute_news-fill.svg
   static const String imagesMingcuteNewsFill = "assets/images/mingcute_news-fill.svg";
+
+  /// Assets for imagesNega
+  /// assets/images/nega.png
+  static const String imagesNega = "assets/images/nega.png";
 
   /// Assets for imagesNumberback
   /// assets/images/numberback.png
@@ -74,6 +94,10 @@ class Assets {
   /// assets/images/pause.svg
   static const String imagesPause = "assets/images/pause.svg";
 
+  /// Assets for imagesPosa
+  /// assets/images/posa.png
+  static const String imagesPosa = "assets/images/posa.png";
+
   /// Assets for imagesReviewAvatar
   /// assets/images/review_avatar.png
   static const String imagesReviewAvatar = "assets/images/review_avatar.png";
@@ -93,6 +117,10 @@ class Assets {
   /// Assets for imagesStarEmpty
   /// assets/images/StarEmpty.png
   static const String imagesStarEmpty = "assets/images/StarEmpty.png";
+
+  /// Assets for imagesStrugleTextField
+  /// assets/images/strugle_text_field.png
+  static const String imagesStrugleTextField = "assets/images/strugle_text_field.png";
 
   /// Assets for imagesTest
   /// assets/images/test.png

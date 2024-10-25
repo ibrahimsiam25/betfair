@@ -1,3 +1,4 @@
+import 'package:betfair/features/edit_fear/views/edit_fear_view.dart';
 import 'package:betfair/features/home/views/bottom_nav_bar.dart';
 import 'package:betfair/features/offender/views/offender_view.dart';
 import 'package:betfair/features/offender/widgets/add_offender_name_and_cause.dart';
@@ -34,6 +35,7 @@ abstract class AppRouter {
   static const String kOffenderSocilas = '/offenderSocilas';
   static const String kViewOffenderName = '/viewoffendername';
   static const String kViewOffenderSocilas = '/viewoffenderSocilas';
+  static const String kEditFear = '/editFear';
 
   static final router = GoRouter(
     routes: [
@@ -117,6 +119,11 @@ abstract class AppRouter {
           path: kViewOffenderSocilas,
           builder: (context, state) {
             return const ViewOffenderSocials();
+          }),
+      GoRoute(
+          path: kEditFear,
+          builder: (context, state) {
+            return const EditFearView();
           }),
     ],
   );
