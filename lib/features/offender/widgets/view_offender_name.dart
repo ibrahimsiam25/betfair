@@ -8,9 +8,14 @@ import 'package:go_router/go_router.dart';
 import '../../../core/routes/app_router.dart';
 import 'view_offender_element.dart';
 
-class ViewOffenderName extends StatelessWidget {
+class ViewOffenderName extends StatefulWidget {
   const ViewOffenderName({super.key});
 
+  @override
+  State<ViewOffenderName> createState() => _ViewOffenderNameState();
+}
+
+class _ViewOffenderNameState extends State<ViewOffenderName> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(

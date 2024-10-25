@@ -1,3 +1,4 @@
+import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/core/theme/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,12 +46,16 @@ class AddOffenderElement extends StatelessWidget {
               child: TextField(
                 controller: controller,
                 onSubmitted: onSubmitted,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   border: InputBorder.none,
-                  focusedBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
+                  hintStyle: TextStyle(
+                    color: AppColors.white,
+                    fontSize: 16.sp,
+                  ),
+                ),
+                style: TextStyle(
+                  color: AppColors.white,
+                  fontSize: 16.sp,
                 ),
               ),
             ),

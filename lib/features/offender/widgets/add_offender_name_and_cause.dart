@@ -1,5 +1,4 @@
 import 'package:betfair/core/constants/app_assets.dart';
-import 'package:betfair/core/service/shared_preferences_singleton.dart';
 import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:betfair/core/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
@@ -10,13 +9,20 @@ import '../../../core/routes/app_router.dart';
 import 'add_offender_appbar.dart';
 import 'add_offender_element.dart';
 
-class AddOffenderNameAndCause extends StatelessWidget {
+class AddOffenderNameAndCause extends StatefulWidget {
   const AddOffenderNameAndCause({super.key});
 
   @override
+  State<AddOffenderNameAndCause> createState() =>
+      _AddOffenderNameAndCauseState();
+}
+
+class _AddOffenderNameAndCauseState extends State<AddOffenderNameAndCause> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController causeController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController();
-    TextEditingController causeController = TextEditingController();
     return CustomScaffold(
       body: SafeArea(
         child: Column(
@@ -28,20 +34,12 @@ class AddOffenderNameAndCause extends StatelessWidget {
               name: 'Name of the offender',
               image: Assets.imagesOffenderTextfield,
               controller: nameController,
-              onSubmitted: (value) async {
-                nameController.text = value;
-                await SharedPref.setString('offenderName', value);
-              },
             ),
             SizedBox(height: 8.h),
             AddOffenderElement(
               name: 'Cause of the conflict',
               image: Assets.imagesOffenderTextfield2,
               controller: causeController,
-              onSubmitted: (value) async {
-                causeController.text = value;
-                await SharedPref.setString('offenderCause', value);
-              },
             ),
             const Spacer(),
             Align(

@@ -1,5 +1,4 @@
 import 'package:betfair/core/constants/app_assets.dart';
-import 'package:betfair/core/service/shared_preferences_singleton.dart';
 import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:betfair/core/widgets/custom_scaffold.dart';
 import 'package:betfair/features/offender/widgets/add_offender_appbar.dart';
@@ -28,20 +27,12 @@ class AddOffenderSocials extends StatelessWidget {
               name: 'Social page 1',
               image: Assets.imagesOffenderTextfield,
               controller: social1Controller,
-              onSubmitted: (value) async {
-                social1Controller.text = value;
-                await SharedPref.setString('social1', value);
-              },
             ),
             SizedBox(height: 8.h),
             AddOffenderElement(
               name: 'Social page 2',
               image: Assets.imagesOffenderTextfield2,
               controller: social2Controller,
-              onSubmitted: (value) async {
-                social2Controller.text = value;
-                await SharedPref.setString('social2', value);
-              },
             ),
             const Spacer(),
             Align(
