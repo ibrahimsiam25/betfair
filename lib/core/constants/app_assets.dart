@@ -54,6 +54,14 @@ class Assets {
   /// assets/images/offender.png
   static const String imagesOffender = "assets/images/offender.png";
 
+  /// Assets for imagesOffenderTextfield
+  /// assets/images/offender_textfield.png
+  static const String imagesOffenderTextfield = "assets/images/offender_textfield.png";
+
+  /// Assets for imagesOffenderTextfield2
+  /// assets/images/offender_textfield2.png
+  static const String imagesOffenderTextfield2 = "assets/images/offender_textfield2.png";
+
   /// Assets for imagesOnBoarding1
   /// assets/images/onBoarding_1.png
   static const String imagesOnBoarding1 = "assets/images/onBoarding_1.png";
