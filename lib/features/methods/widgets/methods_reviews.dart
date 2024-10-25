@@ -20,7 +20,7 @@ class MethodsReviews extends StatelessWidget {
                 left: 24.w, right: 24.h, top: 16.h, bottom: 16.h),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(Assets.imagesReviewsBack),
+                image: AssetImage(Assets.imagesReviewBack),
                 fit: BoxFit.fill,
               ),
             ),
