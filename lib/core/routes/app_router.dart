@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/fears/views/new_fears_one_view.dart';
 import '../../features/fears/views/new_fears_three_view.dart';
 import '../../features/fears/views/new_fears_two_view.dart';
+import '../../features/test/views/situation_final_view.dart';
 import '../../features/test/views/situation_save_view.dart';
 
 abstract class AppRouter {
@@ -63,12 +64,17 @@ abstract class AppRouter {
           builder: (context, state) {
             return const SituationView();
           }),
-              GoRoute(
+      GoRoute(
           path: kSituationSave,
           builder: (context, state) {
-            return  SituationSaveView(
+            return SituationSaveView(
               rateOfSituation: state.extra as List<int>,
             );
+          }),
+                GoRoute(
+          path: kSituationFinal,
+          builder: (context, state) {
+            return const SituationFinalView();
           }),
     ],
   );

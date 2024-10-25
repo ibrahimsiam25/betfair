@@ -1,9 +1,11 @@
 import 'package:betfair/core/constants/app_assets.dart';
+import 'package:betfair/core/routes/app_router.dart';
 import 'package:betfair/core/theme/app_text_styles.dart';
 import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:betfair/features/test/data/static/situation_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/functions/get_color_for_rate.dart';
 import '../../../core/theme/app_colors.dart';
@@ -62,7 +64,9 @@ class SituationSaveViewBody extends StatelessWidget {
           ), const Spacer(flex: 2,),
             CustomButton(
               fontColor: AppColors.theme,
-              text: "SAVE", onPressed: (){}),
+              text: "SAVE", onPressed: (){
+                GoRouter.of(context).push(AppRouter.kSituationFinal);
+              }),
                const Spacer(flex: 1,),
         ],
       ),
