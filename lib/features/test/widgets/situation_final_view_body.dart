@@ -33,9 +33,9 @@ class SituationFinalViewBody extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                decoration: const BoxDecoration(
+                decoration:const BoxDecoration(
                     image: DecorationImage(
-                  image: AssetImage(Assets.imagesMethodsBack),
+                  image: AssetImage(Assets.imagesMethodBack),
                   fit: BoxFit.fill,
                 )),
                 child: Column(children: [
