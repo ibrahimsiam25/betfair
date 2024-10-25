@@ -1,5 +1,6 @@
 import 'package:betfair/features/home/views/bottom_nav_bar.dart';
 import 'package:betfair/features/onboarding/views/onboarding_view.dart';
+import 'package:betfair/features/test/views/instructions_view.dart';
 import 'package:betfair/features/test/views/test_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +15,7 @@ abstract class AppRouter {
   static const String kNewTwoFears = '/newTwoFears';
   static const String kNewThreeFears = '/newThreeFears';
   static const String kTest = '/test';
-
+  static const String kInstructions = '/instructions';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -40,8 +41,13 @@ abstract class AppRouter {
           fearsMap: state.extra as Map<String, dynamic>,
         ),
       ),
-      GoRoute(path: kTest, builder: (context, state) {
+      GoRoute(
+        path: kTest, builder: (context, state) {
         return  const TestView();
+      }),
+            GoRoute(
+        path: kInstructions, builder: (context, state) {
+        return  const InstructionsView();
       }),
     ],
   );

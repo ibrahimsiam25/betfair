@@ -2,8 +2,10 @@ import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/constants/app_assets.dart';
+import '../../../core/routes/app_router.dart';
 import '../../../core/theme/app_text_styles.dart';
 
 class TestViewBody extends StatelessWidget {
@@ -33,7 +35,10 @@ class TestViewBody extends StatelessWidget {
           flex: 1,
         ),
         CustomButton(
-            fontColor: AppColors.theme, text: "START", onPressed: () {}),
+            fontColor: AppColors.theme, text: "START", onPressed: () {
+
+              GoRouter.of(context).push(AppRouter.kInstructions);
+            }),
         const Spacer(
           flex: 1,
         ),
