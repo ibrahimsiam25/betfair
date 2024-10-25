@@ -12,7 +12,7 @@ class InstructionsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Align(
@@ -29,27 +29,32 @@ class InstructionsViewBody extends StatelessWidget {
             ),
           ),
         ),
-     const   Spacer(flex: 6,),
-                    Text(
-                  "Instructions",
-                  style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 35.sp),
-                ),
-     const   Spacer(),
-                    Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 28.w),
-                      child: Text(
-                                        "Read through each situation and rate your level of fear or anxiety on a scale of 0 to 10, with 0 being ‘not at all afraid’ and 10 being ‘extremely afraid’.",
-                                        textAlign: TextAlign.center,
-                                        style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
-                                      ),
-                    ),
-     const   Spacer(flex: 6,),
+        const Spacer(
+          flex: 6,
+        ),
+        Text(
+          "Instructions",
+          style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 35.sp),
+        ),
+        const Spacer(),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 28.w),
+          child: Text(
+            "Read through each situation and rate your level of fear or anxiety on a scale of 0 to 10, with 0 being ‘not at all afraid’ and 10 being ‘extremely afraid’.",
+            textAlign: TextAlign.center,
+            style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
+          ),
+        ),
+        const Spacer(
+          flex: 6,
+        ),
         CustomButton(
-          fontColor: AppColors.theme, text: "CONTINUE", onPressed: () {
-    
-            GoRouter.of(context).push(AppRouter.kInstructions);
-          }),
-           const   Spacer(),
+            fontColor: AppColors.theme,
+            text: "CONTINUE",
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSituation);
+            }),
+        const Spacer(),
       ],
     );
   }

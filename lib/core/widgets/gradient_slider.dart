@@ -9,8 +9,8 @@ class GradientSlider extends StatefulWidget {
   @override
   _GradientSliderState createState() => _GradientSliderState();
   final Function(double) onChanged;
-
-  const GradientSlider({super.key, required this.onChanged});
+  final Color? thumbBorderColor;
+  const GradientSlider({super.key, required this.onChanged, this.thumbBorderColor});
 }
 
 class _GradientSliderState extends State<GradientSlider> {
@@ -36,7 +36,9 @@ class _GradientSliderState extends State<GradientSlider> {
                       trackHeight: 10.0,
                       activeTrackColor: Colors.transparent,
                       inactiveTrackColor: Colors.transparent,
-                      thumbShape: CustomCircleThumbShape(), // شكل مخصص للمقبض
+                      thumbShape: CustomCircleThumbShape(
+                        thumbBorderColor: widget.thumbBorderColor?? AppColors.ligthTheme,
+                      ), // شكل مخصص للمقبض
                       overlayShape:const RoundSliderOverlayShape(overlayRadius: 24.0),
                     ),
                     child: Stack(
@@ -46,7 +48,7 @@ class _GradientSliderState extends State<GradientSlider> {
                           height: 18.0,
                           decoration: BoxDecoration(
                             gradient:const LinearGradient(
-                              colors: [Color(0xFF34FF00), Color(0xFFFFDD01), Color(0xFFFE0001)],
+                              colors: [Color(0xFF34FF00), Color(0xFFFFE700), Color(0xFFFE0001)],
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -113,6 +115,9 @@ class _GradientSliderState extends State<GradientSlider> {
 }
 
 class CustomCircleThumbShape extends SliderComponentShape {
+  final Color thumbBorderColor;
+
+  CustomCircleThumbShape({required this.thumbBorderColor});
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
     return const Size(40.0, 40.0); // حجم المقبض
@@ -137,9 +142,9 @@ class CustomCircleThumbShape extends SliderComponentShape {
 
     // رسم الحافة الخارجية (border) للمقبض
     final Paint borderPaint = Paint()
-      ..color = AppColors.ligthTheme
+      ..color = thumbBorderColor 
       ..style = PaintingStyle.stroke // رسم الحافة فقط
-      ..strokeWidth = 2.0; // سمك الحافة
+      ..strokeWidth = 3.5; // سمك الحافة
     canvas.drawCircle(Offset(center.dx, center.dy - 16), 15.0, borderPaint);
 
     // رسم الدائرة الداخلية للمقبض
