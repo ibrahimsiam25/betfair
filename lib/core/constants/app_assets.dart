@@ -46,6 +46,10 @@ class Assets {
   /// assets/images/mingcute_news-fill.svg
   static const String imagesMingcuteNewsFill = "assets/images/mingcute_news-fill.svg";
 
+  /// Assets for imagesNumberback
+  /// assets/images/numberback.png
+  static const String imagesNumberback = "assets/images/numberback.png";
+
   /// Assets for imagesOnBoarding1
   /// assets/images/onBoarding_1.png
   static const String imagesOnBoarding1 = "assets/images/onBoarding_1.png";
