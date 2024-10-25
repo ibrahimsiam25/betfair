@@ -49,6 +49,7 @@ class NewFearsThreeViewBody extends StatelessWidget {
           CustomButton(
             text: "SAVE",
             onPressed: () async {
+                GoRouter.of(context).push(AppRouter.kBottomNav);
               await saveMapToListInSharedPref(
                   key: kFearsListShardPref,
                   newMap: {
@@ -58,7 +59,7 @@ class NewFearsThreeViewBody extends StatelessWidget {
                     kControlMethods: fearsMap[kControlMethods],
                     kRateLevelFear: rateLevelFear
                   });
-                  GoRouter.of(context).push(AppRouter.kBottomNav);
+                   
             },
           ),
           SizedBox(height: 16.h),

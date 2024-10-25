@@ -26,11 +26,11 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: "/d",
+        path: "/",
         builder: (context, state) => const OnboardingView(),
       ),
       GoRoute(
-        path: "/",
+        path: kBottomNav,
         builder: (context, state) => const BottomNavigationBarController(),
       ),
       GoRoute(
