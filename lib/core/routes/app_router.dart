@@ -1,4 +1,7 @@
 import 'package:betfair/features/home/views/bottom_nav_bar.dart';
+import 'package:betfair/features/offender/views/offender_view.dart';
+import 'package:betfair/features/offender/widgets/offender_name_and_cause.dart';
+import 'package:betfair/features/offender/widgets/offender_socials.dart';
 import 'package:betfair/features/onboarding/views/onboarding_view.dart';
 import 'package:betfair/features/settings/views/settings_view.dart';
 import 'package:betfair/features/test/views/instructions_view.dart';
@@ -23,7 +26,10 @@ abstract class AppRouter {
   static const String kSituation = '/situation';
   static const String kSituationSave = '/situationSave';
   static const String kSituationFinal = '/situationFinal';
-  static const String Ksettings = '/settings';
+  static const String kSettings = '/settings';
+  static const String kOffender = '/offender';
+  static const String kOffenderName = '/offenderName';
+  static const String kOffenderSocilas = '/offenderSocilas';
 
   static final router = GoRouter(
     routes: [
@@ -74,7 +80,7 @@ abstract class AppRouter {
             );
           }),
       GoRoute(
-          path: Ksettings,
+          path: kSettings,
           builder: (context, state) {
             return const SettingsView();
           }),
@@ -82,7 +88,22 @@ abstract class AppRouter {
           path: kSituationFinal,
           builder: (context, state) {
             return const SituationFinalView();
-          })
+          }),
+      GoRoute(
+          path: kOffender,
+          builder: (context, state) {
+            return const OffenderView();
+          }),
+      GoRoute(
+          path: kOffenderName,
+          builder: (context, state) {
+            return const OffenderNameAndCause();
+          }),
+      GoRoute(
+          path: kOffenderSocilas,
+          builder: (context, state) {
+            return const OffenderSocials();
+          }),
     ],
   );
 }

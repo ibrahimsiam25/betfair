@@ -17,7 +17,7 @@ class HomeAppBar extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () {
-            GoRouter.of(context).push(AppRouter.Ksettings);
+            GoRouter.of(context).push(AppRouter.kSettings);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,

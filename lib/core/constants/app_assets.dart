@@ -50,6 +50,10 @@ class Assets {
   /// assets/images/numberback.png
   static const String imagesNumberback = "assets/images/numberback.png";
 
+  /// Assets for imagesOffender
+  /// assets/images/offender.png
+  static const String imagesOffender = "assets/images/offender.png";
+
   /// Assets for imagesOnBoarding1
   /// assets/images/onBoarding_1.png
   static const String imagesOnBoarding1 = "assets/images/onBoarding_1.png";

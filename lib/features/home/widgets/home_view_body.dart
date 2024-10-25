@@ -65,7 +65,9 @@ class HomeViewBody extends StatelessWidget {
                   ),
                   CustomButton(
                     text: "Add offender",
-                    onPressed: () {},
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.kOffender);
+                    },
                   )
                 ],
               ),
