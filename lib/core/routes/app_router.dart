@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/fears/views/new_fears_one_view.dart';
 import '../../features/fears/views/new_fears_three_view.dart';
 import '../../features/fears/views/new_fears_two_view.dart';
+import '../../features/test/views/situation_final_view.dart';
 import '../../features/test/views/situation_save_view.dart';
 
 abstract class AppRouter {
@@ -27,11 +28,11 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: "/d",
+        path: "/",
         builder: (context, state) => const OnboardingView(),
       ),
       GoRoute(
-        path: "/",
+        path: kBottomNav,
         builder: (context, state) => const BottomNavigationBarController(),
       ),
       GoRoute(
@@ -77,6 +78,11 @@ abstract class AppRouter {
           builder: (context, state) {
             return const SettingsView();
           }),
+      GoRoute(
+          path: kSituationFinal,
+          builder: (context, state) {
+            return const SituationFinalView();
+          })
     ],
   );
 }

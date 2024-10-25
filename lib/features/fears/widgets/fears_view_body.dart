@@ -9,7 +9,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/functions/save_and_get_map_to_list_with_shared_pref.dart';
 import '../../../core/routes/app_router.dart';
-import '../../../core/theme/app_text_styles.dart';
 
 class FearsViewBody extends StatefulWidget {
   const FearsViewBody({super.key});
@@ -32,24 +31,26 @@ class _FearsViewBodyState extends State<FearsViewBody> {
   }
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
-      child: Column(
-        children: [
-        Align(
-          alignment: Alignment.centerRight,
-          child: IconButton(onPressed: (){
-            GoRouter.of(context).push(AppRouter.kNewOneFears);
-          }, icon:  SvgPicture.asset(
-            width: 32.w,
-                height:32.h,
-                Assets.imagesAdd,
-       
-              )),
-        ),
-        SizedBox(height: 10.h,),
-        Expanded(
-          child: ListView.builder(
+    return  SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        child: Column(
+          children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: IconButton(onPressed: (){
+              GoRouter.of(context).push(AppRouter.kNewOneFears);
+            }, icon:  SvgPicture.asset(
+              width: 32.w,
+                  height:32.h,
+                  Assets.imagesAdd,
+         
+                )),
+          ),
+          SizedBox(height: 10.h,),
+          ListView.builder(
+            shrinkWrap: true,
+            physics:const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             itemCount: listOfMaps.length,
             itemBuilder: (context, index) {
@@ -59,10 +60,10 @@ class _FearsViewBodyState extends State<FearsViewBody> {
               );
             },
           ),
-        ),
-
-                
-      ]),
+       SizedBox(height: 100.h,),
+                  
+        ]),
+      ),
     );
   }
 }
