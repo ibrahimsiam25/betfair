@@ -4,17 +4,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/theme/app_text_styles.dart';
 
-
 class GradientSlider extends StatefulWidget {
   @override
-  _GradientSliderState createState() => _GradientSliderState();
+  GradientSliderState createState() => GradientSliderState();
   final Function(double) onChanged;
   final Color? thumbBorderColor;
-  const GradientSlider({super.key, required this.onChanged, this.thumbBorderColor});
+  const GradientSlider(
+      {super.key, required this.onChanged, this.thumbBorderColor});
 }
 
-class _GradientSliderState extends State<GradientSlider> {
-  double _currentValue = 5.0; 
+class GradientSliderState extends State<GradientSlider> {
+  double _currentValue = 5.0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,6 @@ class _GradientSliderState extends State<GradientSlider> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-      
                 Expanded(
                   child: SliderTheme(
                     data: SliderTheme.of(context).copyWith(
@@ -37,9 +36,11 @@ class _GradientSliderState extends State<GradientSlider> {
                       activeTrackColor: Colors.transparent,
                       inactiveTrackColor: Colors.transparent,
                       thumbShape: CustomCircleThumbShape(
-                        thumbBorderColor: widget.thumbBorderColor?? AppColors.ligthTheme,
+                        thumbBorderColor:
+                            widget.thumbBorderColor ?? AppColors.ligthTheme,
                       ), // شكل مخصص للمقبض
-                      overlayShape:const RoundSliderOverlayShape(overlayRadius: 24.0),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 24.0),
                     ),
                     child: Stack(
                       children: [
@@ -47,8 +48,12 @@ class _GradientSliderState extends State<GradientSlider> {
                         Container(
                           height: 18.0,
                           decoration: BoxDecoration(
-                            gradient:const LinearGradient(
-                              colors: [Color(0xFF34FF00), Color(0xFFFFE700), Color(0xFFFE0001)],
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color(0xFF34FF00),
+                                Color(0xFFFFE700),
+                                Color(0xFFFE0001)
+                              ],
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -62,47 +67,48 @@ class _GradientSliderState extends State<GradientSlider> {
                           onChanged: (value) {
                             setState(() {
                               _currentValue = value;
-                              widget.onChanged(value); // تحديث القيمة عند التحريك
+                              widget
+                                  .onChanged(value); // تحديث القيمة عند التحريك
                             });
                           },
-                          activeColor: Colors.transparent, // إخفاء اللون الافتراضي للشريط
-                          inactiveColor: Colors.transparent, // إخفاء اللون الافتراضي للشريط
+                          activeColor: Colors
+                              .transparent, // إخفاء اللون الافتراضي للشريط
+                          inactiveColor: Colors
+                              .transparent, // إخفاء اللون الافتراضي للشريط
                         ),
                       ],
                     ),
                   ),
                 ),
-
-         
               ],
             ),
-     
-       Row(
-         children: [
-                 Padding(
-                   padding: EdgeInsets.only(top: 19.h),
-                   child: Text(
-                     '0',
-                     style:  AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
-                   ),
-                 ),
-               const  Spacer(),
-                   Padding(
-                   padding: EdgeInsets.only(top: 19.h),
-                   child: Text(
-                     '10',
-                     style:  AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
-                   ),
-                 ),
-         ]
-       ),
+
+            Row(children: [
+              Padding(
+                padding: EdgeInsets.only(top: 19.h),
+                child: Text(
+                  '0',
+                  style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
+                ),
+              ),
+              const Spacer(),
+              Padding(
+                padding: EdgeInsets.only(top: 19.h),
+                child: Text(
+                  '10',
+                  style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
+                ),
+              ),
+            ]),
             Visibility(
               visible: _currentValue != 0 && _currentValue != 10,
               child: Positioned(
                 top: 22.h,
-                left: (_currentValue / 10) * (MediaQuery.of(context).size.width - 80.w), // لحساب موضع النص
+                left: (_currentValue / 10) *
+                    (MediaQuery.of(context).size.width -
+                        80.w), // لحساب موضع النص
                 child: Text(
-                   _currentValue.toInt().toString(),
+                  _currentValue.toInt().toString(),
                   style: AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
                 ),
               ),
@@ -142,14 +148,14 @@ class CustomCircleThumbShape extends SliderComponentShape {
 
     // رسم الحافة الخارجية (border) للمقبض
     final Paint borderPaint = Paint()
-      ..color = thumbBorderColor 
+      ..color = thumbBorderColor
       ..style = PaintingStyle.stroke // رسم الحافة فقط
       ..strokeWidth = 3.5; // سمك الحافة
     canvas.drawCircle(Offset(center.dx, center.dy - 16), 15.0, borderPaint);
 
     // رسم الدائرة الداخلية للمقبض
-    final Paint thumbPaint = Paint()
-      ..color = AppColors.theme;
-    canvas.drawCircle(Offset(center.dx, center.dy - 16), 14.0, thumbPaint); // تقليل نصف القطر لتتناسب مع الحافة
+    final Paint thumbPaint = Paint()..color = AppColors.theme;
+    canvas.drawCircle(Offset(center.dx, center.dy - 16), 14.0,
+        thumbPaint); // تقليل نصف القطر لتتناسب مع الحافة
   }
 }

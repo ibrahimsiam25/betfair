@@ -55,7 +55,7 @@ class SituationPage extends StatelessWidget {
             thumbBorderColor: AppColors.yellow,
             onChanged: (value) {
               rateOfSituation[index] = value.toInt();
-              print(rateOfSituation);
+              debugPrint(rateOfSituation.toString());
             },
           ),
           SizedBox(height: 40.h),

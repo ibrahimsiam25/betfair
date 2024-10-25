@@ -1,9 +1,8 @@
 import 'package:betfair/core/theme/app_colors.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/theme/app_text_styles.dart';
 
+import '../../../core/theme/app_text_styles.dart';
 
 class MyButton extends StatelessWidget {
   final String label;
@@ -11,11 +10,11 @@ class MyButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   const MyButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.opacity,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +29,10 @@ class MyButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20), // Rounded corners
             ),
-            
-            padding:const EdgeInsets.symmetric(vertical: 15), // Padding
-            minimumSize: const Size(double.infinity, 50), // Minimum width and height
+
+            padding: const EdgeInsets.symmetric(vertical: 15), // Padding
+            minimumSize:
+                const Size(double.infinity, 50), // Minimum width and height
           ),
           child: Text(
             label,

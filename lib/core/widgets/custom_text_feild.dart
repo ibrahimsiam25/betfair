@@ -1,7 +1,8 @@
 import 'dart:ui';
+
 import 'package:betfair/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class CustomTextField extends StatelessWidget {
   final Function(String) onChanged;
   final Widget? icon;
@@ -43,7 +44,8 @@ class CustomTextField extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: icon != null
-                    ? const EdgeInsets.fromLTRB(20, 15, 0, 15) // Adjust padding when icon is present
+                    ? const EdgeInsets.fromLTRB(
+                        20, 15, 0, 15) // Adjust padding when icon is present
                     : const EdgeInsets.symmetric(horizontal: 20),
                 suffixIcon: icon != null
                     ? Padding(

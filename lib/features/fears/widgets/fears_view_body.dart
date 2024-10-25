@@ -1,5 +1,4 @@
 import 'package:betfair/core/constants/app_assets.dart';
-import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/features/fears/widgets/fears_element.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,42 +28,45 @@ class _FearsViewBodyState extends State<FearsViewBody> {
     listOfMaps = await getListOfMapsFromSharedPref(kFearsListShardPref);
     setState(() {}); // Update the UI after data is loaded
   }
+
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5.w),
-        child: Column(
-          children: [
+        child: Column(children: [
           Align(
             alignment: Alignment.centerRight,
-            child: IconButton(onPressed: (){
-              GoRouter.of(context).push(AppRouter.kNewOneFears);
-            }, icon:  SvgPicture.asset(
-              width: 32.w,
-                  height:32.h,
+            child: IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kNewOneFears);
+                },
+                icon: SvgPicture.asset(
+                  width: 32.w,
+                  height: 32.h,
                   Assets.imagesAdd,
-         
                 )),
           ),
-          SizedBox(height: 10.h,),
+          SizedBox(
+            height: 10.h,
+          ),
           ListView.builder(
             shrinkWrap: true,
-            physics:const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             itemCount: listOfMaps.length,
             itemBuilder: (context, index) {
               return FearsElement(
-              fear: listOfMaps[index][kFears],
-              rate: listOfMaps[index][kRateLevelFear],
+                fear: listOfMaps[index][kFears],
+                rate: listOfMaps[index][kRateLevelFear],
               );
             },
           ),
-       SizedBox(height: 100.h,),
-                  
+          SizedBox(
+            height: 100.h,
+          ),
         ]),
       ),
     );
   }
 }
-

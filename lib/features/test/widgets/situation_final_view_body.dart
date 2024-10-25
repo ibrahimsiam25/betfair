@@ -27,13 +27,13 @@ class SituationFinalViewBody extends StatelessWidget {
             ),
           ),
         ),
-         Spacer(flex: 5,),
+        const Spacer(flex: 5),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
             children: [
               Container(
-                decoration:const BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
                   image: AssetImage(Assets.imagesMethodBack),
                   fit: BoxFit.fill,
@@ -56,7 +56,7 @@ class SituationFinalViewBody extends StatelessWidget {
                     style:
                         AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
                   ),
-                     SizedBox(
+                  SizedBox(
                     height: 40.h,
                   ),
                 ]),
@@ -64,12 +64,18 @@ class SituationFinalViewBody extends StatelessWidget {
             ],
           ),
         ),
-     const   Spacer(flex: 5,),
+        const Spacer(
+          flex: 5,
+        ),
         CustomButton(
-            fontColor: AppColors.theme, text: "MAIN", onPressed: () {
+            fontColor: AppColors.theme,
+            text: "MAIN",
+            onPressed: () {
               GoRouter.of(context).push(AppRouter.kBottomNav);
             }),
-       const  Spacer(flex: 1,),
+        const Spacer(
+          flex: 1,
+        ),
       ],
     );
   }

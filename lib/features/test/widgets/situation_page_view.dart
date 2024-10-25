@@ -9,11 +9,11 @@ class SituationPageView extends StatelessWidget {
   final List<int> rateOfSituation;
 
   const SituationPageView({
-    Key? key,
+    super.key,
     required this.pageController,
     required this.onPageChanged,
     required this.rateOfSituation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
