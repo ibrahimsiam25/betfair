@@ -104,138 +104,148 @@ class EditFearViewBody extends StatelessWidget {
                         context: context,
                         isScrollControlled: true,
                         builder: (BuildContext context) {
-                          return SingleChildScrollView(
-                            child: Container(
-                              height: 260.h,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 24.0.w, vertical: 16.0.h),
-                              decoration: BoxDecoration(
-                                color: AppColors.primary,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(20.r),
-                                  topRight: Radius.circular(20.r),
+                          return Padding(
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).viewInsets.bottom),
+                            child: SingleChildScrollView(
+                              child: Container(
+                                height: 260.h,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 24.0.w, vertical: 16.0.h),
+                                decoration: BoxDecoration(
+                                  color: AppColors.primary,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20.r),
+                                    topRight: Radius.circular(20.r),
+                                  ),
                                 ),
-                              ),
-                              child: Align(
-                                child: ListView(
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 8.0.w),
-                                      child: Text(
-                                        'The method of struggle',
-                                        style: AppTextStyles.fontBlackW700
-                                            .copyWith(
-                                          fontSize: 14.sp,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 4.h),
-                                    Container(
-                                      height: 48.h,
-                                      padding: EdgeInsets.all(8.w),
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            Assets.imagesStrugleTextField,
+                                child: Align(
+                                  child: ListView(
+                                    shrinkWrap:
+                                        true, // Use shrinkWrap to avoid constraints issues
+                                    physics:
+                                        NeverScrollableScrollPhysics(), // Prevent scrolling here
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 8.0.w),
+                                        child: Text(
+                                          'The method of struggle',
+                                          style: AppTextStyles.fontBlackW700
+                                              .copyWith(
+                                            fontSize: 14.sp,
                                           ),
-                                          fit: BoxFit.fill,
                                         ),
                                       ),
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintStyle: TextStyle(
+                                      SizedBox(height: 4.h),
+                                      Container(
+                                        height: 48.h,
+                                        padding: EdgeInsets.all(8.w),
+                                        decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              Assets.imagesStrugleTextField,
+                                            ),
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintStyle: TextStyle(
+                                              color: AppColors.white,
+                                              fontSize: 16.sp,
+                                            ),
+                                          ),
+                                          style: TextStyle(
                                             color: AppColors.white,
                                             fontSize: 16.sp,
                                           ),
                                         ),
-                                        style: TextStyle(
-                                          color: AppColors.white,
-                                          fontSize: 16.sp,
+                                      ),
+                                      SizedBox(height: 12.h),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 8.0.w),
+                                        child: Text(
+                                          'What was the impact?',
+                                          style: AppTextStyles.fontBlackW700
+                                              .copyWith(
+                                            fontSize: 14.sp,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 12.h),
-                                    Padding(
-                                      padding: EdgeInsets.only(left: 8.0.w),
-                                      child: Text(
-                                        'What was the impact?',
-                                        style: AppTextStyles.fontBlackW700
-                                            .copyWith(
-                                          fontSize: 14.sp,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 4.h),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          Assets.imagesNega,
-                                          height: 32.h,
-                                          fit: BoxFit.fill,
-                                        ),
-                                        SizedBox(width: 8.w),
-                                        Expanded(
-                                          child: Container(
-                                            height: 48.h,
-                                            padding: EdgeInsets.all(8.w),
-                                            decoration: const BoxDecoration(
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                  Assets.imagesImpactTextfield,
+                                      SizedBox(height: 4.h),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            Assets.imagesNega,
+                                            height: 32.h,
+                                            fit: BoxFit.fill,
+                                          ),
+                                          SizedBox(width: 8.w),
+                                          Expanded(
+                                            child: Container(
+                                              height: 48.h,
+                                              padding: EdgeInsets.all(8.w),
+                                              decoration: const BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                    Assets
+                                                        .imagesImpactTextfield,
+                                                  ),
+                                                  fit: BoxFit.fill,
                                                 ),
-                                                fit: BoxFit.fill,
                                               ),
-                                            ),
-                                            child: TextField(
-                                              decoration: InputDecoration(
-                                                border: InputBorder.none,
-                                                hintStyle: TextStyle(
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: InputBorder.none,
+                                                  hintStyle: TextStyle(
+                                                    color: AppColors.white,
+                                                    fontSize: 16.sp,
+                                                  ),
+                                                ),
+                                                style: TextStyle(
                                                   color: AppColors.white,
                                                   fontSize: 16.sp,
                                                 ),
                                               ),
-                                              style: TextStyle(
-                                                color: AppColors.white,
-                                                fontSize: 16.sp,
-                                              ),
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(width: 8.w),
-                                        Image.asset(
-                                          Assets.imagesPosa,
-                                          height: 32.h,
-                                          fit: BoxFit.fitHeight,
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 16.h),
-                                    Align(
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 48.0.w,
-                                              vertical: 4.h),
-                                          backgroundColor: AppColors.black,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12.r),
+                                          SizedBox(width: 8.w),
+                                          Image.asset(
+                                            Assets.imagesPosa,
+                                            height: 32.h,
+                                            fit: BoxFit.fitHeight,
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 16.h),
+                                      Align(
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 48.0.w,
+                                                vertical: 4.h),
+                                            backgroundColor: AppColors.black,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12.r),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            'SAVE',
+                                            style: AppTextStyles.fontWhiteW700
+                                                .copyWith(fontSize: 28.sp),
                                           ),
                                         ),
-                                        child: Text(
-                                          'SAVE',
-                                          style: AppTextStyles.fontWhiteW700
-                                              .copyWith(fontSize: 28.sp),
-                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

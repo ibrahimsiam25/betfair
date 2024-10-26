@@ -19,34 +19,32 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   final TextEditingController _controller = TextEditingController();
+Future<void> _selectDate(BuildContext context) async {
+  DateTime? selectedDate = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: Theme.of(context).copyWith(
+         primaryColor: AppColors.primary, // Color of the selected date
+          dialogBackgroundColor: Colors.black, // Background color of the dialog
+          scaffoldBackgroundColor: Colors.black, // Background color of the scaffold
+          colorScheme: ColorScheme.dark(primary: AppColors.primary), // Dark color scheme
+          buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary), // Button color
+        ),
+        child: child!,
+      );
+    },
+  );
 
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime? selectedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-       builder: (BuildContext context, Widget? child) {
-        return Theme(
-          data: ThemeData.light().copyWith(
-            primaryColor:AppColors.primary,
-          cardColor: AppColors.primary,
-          canvasColor: AppColors.primary,
-            colorScheme:const ColorScheme.light(primary: AppColors.darkPrimary),
-            buttonTheme:const ButtonThemeData(textTheme: ButtonTextTheme.primary), // Button color
-          ),
-          child: child!,
-        );
-      },
-    );
-
-    if (selectedDate != null) {
-      String formattedDate = DateFormat('yyyy/MM/dd').format(selectedDate);
-      _controller.text = formattedDate; // Update the text field with the formatted date
-      widget.onChanged(formattedDate); // Call the onChanged function
-    }
+  if (selectedDate != null) {
+    String formattedDate = DateFormat('yyyy/MM/dd').format(selectedDate);
+    _controller.text = formattedDate; // Update the text field with the formatted date
+    widget.onChanged(formattedDate); // Call the onChanged function
   }
-
+}
   @override
   Widget build(BuildContext context) {
     return Container(
