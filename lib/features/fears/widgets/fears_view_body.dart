@@ -15,54 +15,50 @@ class FearsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.w),
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButton(
-                    onPressed: () {
-                      GoRouter.of(context).push(AppRouter.kNewOneFears);
-                    },
-                    icon: SvgPicture.asset(
-                      width: 32.w,
-                      height: 32.h,
-                      Assets.imagesAdd,
-                    ),
-                  ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kNewOneFears);
+                },
+                icon: SvgPicture.asset(
+                  width: 32.w,
+                  height: 32.h,
+                  Assets.imagesAdd,
                 ),
-                SizedBox(height: 10.h),
-                BlocBuilder<FearsCubit, List<Map<String, dynamic>>>(
-                  builder: (context, listOfMaps) {
-                    return ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      itemCount: listOfMaps.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            GoRouter.of(context).push(AppRouter.kEditFear);
-                          },
-                          child: FearsElement(
-                            fear: listOfMaps[index][kFears],
-                            rate: listOfMaps[index][kRateLevelFear],
-                          ),
-                        );
+              ),
+            ),
+            SizedBox(height: 10.h),
+            BlocBuilder<FearsCubit, List<Map<String, dynamic>>>(
+              builder: (context, listOfMaps) {
+                return ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  itemCount: listOfMaps.length,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kEditFear);
                       },
+                      child: FearsElement(
+                        fear: listOfMaps[index][kFears],
+                        rate: listOfMaps[index][kRateLevelFear],
+                      ),
                     );
                   },
-                ),
-                SizedBox(height: 100.h),
-              ],
+                );
+              },
             ),
-          ),
+            SizedBox(height: 100.h),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
