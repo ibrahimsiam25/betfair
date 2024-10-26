@@ -41,7 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
 
     if (selectedDate != null) {
-      String formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+      String formattedDate = DateFormat('yyyy/MM/dd').format(selectedDate);
       _controller.text = formattedDate; // Update the text field with the formatted date
       widget.onChanged(formattedDate); // Call the onChanged function
     }

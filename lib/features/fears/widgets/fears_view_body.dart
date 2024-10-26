@@ -1,4 +1,5 @@
 import 'package:betfair/core/constants/app_assets.dart';
+import 'package:betfair/core/models/fears_model.dart';
 import 'package:betfair/features/fears/widgets/fears_element.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -46,7 +47,10 @@ class FearsViewBody extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
-                          GoRouter.of(context).push(AppRouter.kEditFear);
+                          GoRouter.of(context).push(AppRouter.kEditFear,
+                          extra: FearModel.fromMap(
+                            listOfMaps[index],)
+                          );
                         },
                         child: FearsElement(
                           fear: listOfMaps[index][kFears],

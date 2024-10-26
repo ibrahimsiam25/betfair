@@ -1,4 +1,5 @@
 import 'package:betfair/core/constants/app_assets.dart';
+import 'package:betfair/core/models/fears_model.dart';
 import 'package:betfair/core/theme/app_colors.dart';
 import 'package:betfair/core/theme/app_text_styles.dart';
 import 'package:betfair/features/offender/widgets/back_button.dart';
@@ -7,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EditFearViewBody extends StatelessWidget {
-  const EditFearViewBody({super.key});
-
+  const EditFearViewBody({super.key, required this.fearModel});
+  final FearModel fearModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,7 +34,7 @@ class EditFearViewBody extends StatelessWidget {
                       const OffenderBackButton(),
                       const Spacer(),
                       Text(
-                        '8',
+                        fearModel.rateLevelFear.toString(),
                         style: AppTextStyles.fontWhiteW700.copyWith(
                           fontSize: 40.sp,
                           fontWeight: FontWeight.w900,
@@ -44,19 +45,19 @@ class EditFearViewBody extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   Text(
-                    'Fear of the public',
+                    fearModel.fears,
                     style:
                         AppTextStyles.fontWhiteW700.copyWith(fontSize: 24.sp),
                   ),
                   SizedBox(height: 8.h),
                   Text(
-                    'Has been bothering me for 8 years',
+                    'Has been bothering me for ${fearModel.howLong} ',
                     style:
                         AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    'Start date of the fight 28/08/2024',
+                    'Start date of the fight ${fearModel.date} ',
                     style:
                         AppTextStyles.fontWhiteW500.copyWith(fontSize: 16.sp),
                   ),
@@ -213,13 +214,19 @@ class EditFearViewBody extends StatelessWidget {
                                     ),
                                     SizedBox(height: 16.h),
                                     Align(
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 48.0.w, vertical: 4.h),
-                                        decoration: BoxDecoration(
-                                          color: AppColors.black,
-                                          borderRadius:
-                                              BorderRadius.circular(12.r),
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 48.0.w,
+                                              vertical: 4.h),
+                                          backgroundColor: AppColors.black,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12.r),
+                                          ),
                                         ),
                                         child: Text(
                                           'SAVE',

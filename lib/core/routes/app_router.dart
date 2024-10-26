@@ -17,6 +17,7 @@ import '../../features/fears/views/new_fears_three_view.dart';
 import '../../features/fears/views/new_fears_two_view.dart';
 import '../../features/test/views/situation_final_view.dart';
 import '../../features/test/views/situation_save_view.dart';
+import '../models/fears_model.dart';
 
 abstract class AppRouter {
   static const String kOnBoardingView = '/onBoardingView';
@@ -123,7 +124,9 @@ abstract class AppRouter {
       GoRoute(
           path: kEditFear,
           builder: (context, state) {
-            return const EditFearView();
+            return  EditFearView(
+              fearModel:state.extra as FearModel,
+            );
           }),
     ],
   );
