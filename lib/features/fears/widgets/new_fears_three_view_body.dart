@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +9,7 @@ import '../../../core/routes/app_router.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/gradient_slider.dart';
+import '../manager/fears_cubit.dart';
 import 'new_fear_app_bar.dart';
 
 class NewFearsThreeViewBody extends StatelessWidget {
@@ -49,7 +51,7 @@ class NewFearsThreeViewBody extends StatelessWidget {
           CustomButton(
             text: "SAVE",
             onPressed: () async {
-                GoRouter.of(context).push(AppRouter.kBottomNav);
+               
               await saveMapToListInSharedPref(
                   key: kFearsListShardPref,
                   newMap: {
@@ -58,8 +60,8 @@ class NewFearsThreeViewBody extends StatelessWidget {
                     kDate: fearsMap[kDate],
                     kControlMethods: fearsMap[kControlMethods],
                     kRateLevelFear: rateLevelFear
-                  });
-                   
+                  }); context.read<FearsCubit>().loadFears();
+                    GoRouter.of(context).push(AppRouter.kBottomNav);
             },
           ),
           SizedBox(height: 16.h),
