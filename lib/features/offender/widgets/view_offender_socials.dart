@@ -43,7 +43,7 @@ class ViewOffenderSocials extends StatelessWidget {
               ViewOffenderElement(
                 title: 'Instagram',
                 element: InkWell(
-                  onTap: _launchURL,
+                  onTap: () {},
                   child: SizedBox(
                     height: 40.h,
                     child: Center(
@@ -62,7 +62,7 @@ class ViewOffenderSocials extends StatelessWidget {
               ViewOffenderElement(
                 title: 'LinkedIN',
                 element: InkWell(
-                  onTap: _launchURL,
+                  onTap: () {},
                   child: SizedBox(
                     height: 40.h,
                     child: Center(
