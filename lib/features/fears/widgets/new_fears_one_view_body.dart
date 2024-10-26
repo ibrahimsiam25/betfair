@@ -1,15 +1,16 @@
 import 'package:betfair/core/routes/app_router.dart';
-import 'package:betfair/core/widgets/custom_button.dart';
+import 'package:betfair/core/widgets/custom_scaffold.dart';
 import 'package:betfair/core/widgets/show_custom_snack_bar.dart';
 import 'package:betfair/features/fears/widgets/my_button.dart';
 import 'package:betfair/features/fears/widgets/new_fear_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+
 import '../../../core/constants/app_constants.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../core/widgets/custom_button.dart';
 import '../../../core/widgets/custom_text_feild.dart';
-
 
 class NewFearsViewBody extends StatefulWidget {
   const NewFearsViewBody({super.key});
@@ -19,8 +20,6 @@ class NewFearsViewBody extends StatefulWidget {
 }
 
 class _NewFearsViewBodyState extends State<NewFearsViewBody> {
-
-
   List<double> opacities = List.filled(buttonLabels.length, 0.9);
   String textFieldValue = '';
   bool isButtonPressed = false;
@@ -58,10 +57,14 @@ class _NewFearsViewBodyState extends State<NewFearsViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SingleChildScrollView(
-          child: Padding(
+    return CustomScaffold(
+      floatingActionButton: CustomButton(
+        text: "NEXT",
+        onPressed: _onNextPressed,
+      ),
+      body: ListView(
+        children: [
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
               children: [
@@ -74,7 +77,8 @@ class _NewFearsViewBodyState extends State<NewFearsViewBody> {
                       SizedBox(height: 16.h),
                       Text(
                         "Who or what are you afraid of?",
-                        style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
+                        style: AppTextStyles.fontWhiteW400
+                            .copyWith(fontSize: 16.sp),
                       ),
                       SizedBox(height: 3.h),
                       CustomTextField(
@@ -87,7 +91,8 @@ class _NewFearsViewBodyState extends State<NewFearsViewBody> {
                       SizedBox(height: 8.h),
                       Text(
                         "How long has it been bothering you?",
-                        style: AppTextStyles.fontWhiteW400.copyWith(fontSize: 16.sp),
+                        style: AppTextStyles.fontWhiteW400
+                            .copyWith(fontSize: 16.sp),
                       ),
                       SizedBox(height: 3.h),
                       ...List.generate(buttonLabels.length, (index) {
@@ -100,18 +105,11 @@ class _NewFearsViewBodyState extends State<NewFearsViewBody> {
                     ],
                   ),
                 ),
-            
               ],
             ),
           ),
-        ),
-                const Spacer(),
-          CustomButton(
-            text: "NEXT",
-            onPressed: _onNextPressed,
-          ),
-          SizedBox(height: 16.h),
-      ],
+        ],
+      ),
     );
   }
 }

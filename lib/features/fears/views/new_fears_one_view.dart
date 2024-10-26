@@ -8,7 +8,8 @@ class NewFearsOneView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(body: 
-      SafeArea(child: NewFearsViewBody()));
+    return const CustomScaffold(
+      body: NewFearsViewBody(),
+    );
   }
 }

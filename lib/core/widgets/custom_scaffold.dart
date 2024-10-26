@@ -6,13 +6,17 @@ class CustomScaffold extends StatelessWidget {
   const CustomScaffold({
     super.key,
     required this.body,
+    this.floatingActionButton,
   });
   final Widget body;
+  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
+      floatingActionButton: floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(

@@ -23,6 +23,7 @@ class GradientSliderState extends State<GradientSlider> {
       children: [
         Stack(
           alignment: Alignment.center,
+          clipBehavior: Clip.none,
           children: [
             // شريط التمرير نفسه
             Row(
@@ -43,6 +44,7 @@ class GradientSliderState extends State<GradientSlider> {
                           const RoundSliderOverlayShape(overlayRadius: 24.0),
                     ),
                     child: Stack(
+                      clipBehavior: Clip.none,
                       children: [
                         // شريط التمرير بتدرج لوني
                         Container(
