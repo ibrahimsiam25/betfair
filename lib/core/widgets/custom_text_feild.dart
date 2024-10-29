@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:betfair/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -8,43 +9,49 @@ class CustomTextField extends StatefulWidget {
   final Widget? icon;
 
   const CustomTextField({
-    Key? key,
+    super.key,
     required this.onChanged,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  CustomTextFieldState createState() => CustomTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class CustomTextFieldState extends State<CustomTextField> {
   final TextEditingController _controller = TextEditingController();
-Future<void> _selectDate(BuildContext context) async {
-  DateTime? selectedDate = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-    builder: (BuildContext context, Widget? child) {
-      return Theme(
-        data: Theme.of(context).copyWith(
-         primaryColor: AppColors.primary, // Color of the selected date
-          dialogBackgroundColor: Colors.black, // Background color of the dialog
-          scaffoldBackgroundColor: Colors.black, // Background color of the scaffold
-          colorScheme: ColorScheme.dark(primary: AppColors.primary), // Dark color scheme
-          buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary), // Button color
-        ),
-        child: child!,
-      );
-    },
-  );
+  Future<void> _selectDate(BuildContext context) async {
+    DateTime? selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            primaryColor: AppColors.primary, // Color of the selected date
+            dialogBackgroundColor:
+                Colors.black, // Background color of the dialog
+            scaffoldBackgroundColor:
+                Colors.black, // Background color of the scaffold
+            colorScheme: const ColorScheme.dark(
+                primary: AppColors.primary), // Dark color scheme
+            buttonTheme: const ButtonThemeData(
+                textTheme: ButtonTextTheme.primary), // Button color
+          ),
+          child: child!,
+        );
+      },
+    );
 
-  if (selectedDate != null) {
-    String formattedDate = DateFormat('yyyy/MM/dd').format(selectedDate);
-    _controller.text = formattedDate; // Update the text field with the formatted date
-    widget.onChanged(formattedDate); // Call the onChanged function
+    if (selectedDate != null) {
+      String formattedDate = DateFormat('yyyy/MM/dd').format(selectedDate);
+      _controller.text =
+          formattedDate; // Update the text field with the formatted date
+      widget.onChanged(formattedDate); // Call the onChanged function
+    }
   }
-}
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -94,7 +101,8 @@ Future<void> _selectDate(BuildContext context) async {
               onChanged: widget.onChanged,
               readOnly: widget.icon != null,
               onTap: widget.icon != null
-                  ? () => _selectDate(context) // No longer need to pass controller
+                  ? () =>
+                      _selectDate(context) // No longer need to pass controller
                   : null,
             ),
           ),

@@ -125,7 +125,7 @@ class EditFearViewBody extends StatelessWidget {
                                     shrinkWrap:
                                         true, // Use shrinkWrap to avoid constraints issues
                                     physics:
-                                        NeverScrollableScrollPhysics(), // Prevent scrolling here
+                                        const NeverScrollableScrollPhysics(), // Prevent scrolling here
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.only(left: 8.0.w),

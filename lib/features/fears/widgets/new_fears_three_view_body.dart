@@ -51,7 +51,6 @@ class NewFearsThreeViewBody extends StatelessWidget {
           CustomButton(
             text: "SAVE",
             onPressed: () async {
-               
               await saveMapToListInSharedPref(
                   key: kFearsListShardPref,
                   newMap: {
@@ -60,8 +59,9 @@ class NewFearsThreeViewBody extends StatelessWidget {
                     kDate: fearsMap[kDate],
                     kControlMethods: fearsMap[kControlMethods],
                     kRateLevelFear: rateLevelFear
-                  }); context.read<FearsCubit>().loadFears();
-                    GoRouter.of(context).push(AppRouter.kBottomNav);
+                  });
+              context.read<FearsCubit>().loadFears();
+              GoRouter.of(context).push(AppRouter.kBottomNav);
             },
           ),
           SizedBox(height: 16.h),

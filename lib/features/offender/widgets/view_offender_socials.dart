@@ -10,7 +10,7 @@ import 'view_offender_element.dart';
 class ViewOffenderSocials extends StatelessWidget {
   const ViewOffenderSocials({super.key});
 
-  void _launchURL() async {
+  void launchURL() async {
     final Uri url = Uri.parse('https://github.com/itiswd');
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');

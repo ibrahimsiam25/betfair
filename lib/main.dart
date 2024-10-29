@@ -1,11 +1,11 @@
 import 'package:betfair/core/routes/app_router.dart';
 import 'package:betfair/core/service/shared_preferences_singleton.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/service/api_service.dart';
 import 'features/fears/manager/fears_cubit.dart';
 
 void main() async {
@@ -14,7 +14,13 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
   await SharedPref.init();
-  runApp(const MyApp());
+  ApiService apiService = ApiService();
+  var response = await apiService.makePostRequests();
+  if (response.isNotEmpty) {
+    runApp(const MyApp());
+  } else {
+    runApp(const SecondApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -44,6 +50,22 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class SecondApp extends StatelessWidget {
+  const SecondApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Center(
+          child: Text("Second App"),
+        ),
+      ),
     );
   }
 }
