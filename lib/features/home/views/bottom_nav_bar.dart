@@ -38,11 +38,7 @@ class _BottomNavigationBarControllerState
   }
 
   List<Widget> buildScreens() {
-    return [
-    const FearsView(),
-      const HomeView(),
-      const MethodsView()
-    ];
+    return [const FearsView(), const HomeView(), const MethodsView()];
   }
 
   List<PersistentBottomNavBarItem> navBarsItems() {
