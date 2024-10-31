@@ -5,7 +5,7 @@ import 'dart:math';
 class ApiService {
   static const String baseUrl = 'https://rule-draw.site/programs/';
 
-  // إرسال طلب POST واستقبال الرد
+  
   Future<Map<String, dynamic>?> postRequest(Map<String, int> parameters) async {
     final response = await http.post(
       Uri.parse(baseUrl),
@@ -34,7 +34,7 @@ class ApiHandler {
     });
 
     if (isWhiteResponse(firstResponse)) {
-      print("عرض واجهة الانتظار للمراجعين");
+      print("for google reviewer");
       return false;
     } else if (isGrayResponse(firstResponse)) {
       var secondResponse = await apiService.postRequest({
@@ -49,14 +49,14 @@ class ApiHandler {
         'community_outreach': getRandomInt()
       });
 
-      // التأكد من أن الردود الثلاثة غير null
+
       if (firstResponse != null &&
           secondResponse != null &&
           thirdResponse != null &&
           isGrayResponse(secondResponse) &&
           isGrayResponse(thirdResponse)) {
         link = extractLink(firstResponse, secondResponse, thirdResponse);
-        print("الرابط المستخرج: $link");
+        print("Link: $link");
       }
     }
     return true;
