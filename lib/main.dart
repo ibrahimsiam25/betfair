@@ -15,54 +15,45 @@ void main() async {
     DeviceOrientation.portraitUp,
   ]);
   await SharedPref.init();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const MyApp());
+  ApiHandler apiHandler = ApiHandler();
+
+  bool result = await apiHandler.handleRequests();
+  if (result) {
+    runApp(WebViewScreen(url: apiHandler.link));
+  } else {
+    runApp(const MyApp());
+  }
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    ApiServices apiService = ApiServices();
-    apiService.postData(context);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return isWhite
-        ? ScreenUtilInit(
-            designSize: const Size(360, 690),
-            minTextAdapt: true,
-            splitScreenMode: true,
-            builder: (context, child) {
-              SystemChrome.setSystemUIOverlayStyle(
-                const SystemUiOverlayStyle(
-                  statusBarIconBrightness: Brightness.dark,
-                  statusBarColor: Colors.transparent,
-                ),
-              );
-              return BlocProvider(
-                create: (context) => FearsCubit()..loadFears(),
-                child: MaterialApp.router(
-                  theme: ThemeData(
-                    fontFamily: "Inter",
-                  ),
-                  debugShowCheckedModeBanner: false,
-                  routerConfig: AppRouter.router,
-                ),
-              );
-            },
-          )
-        : const MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        SystemChrome.setSystemUIOverlayStyle(
+          const SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark,
+            statusBarColor: Colors.transparent,
+          ),
+        );
+        return BlocProvider(
+          create: (context) => FearsCubit()..loadFears(),
+          child: MaterialApp.router(
+            theme: ThemeData(
+              fontFamily: "Inter",
+            ),
             debugShowCheckedModeBanner: false,
-            home: WebViewScreen(url: baseUrl),
-          );
+            routerConfig: AppRouter.router,
+          ),
+        );
+      },
+    );
   }
 }
