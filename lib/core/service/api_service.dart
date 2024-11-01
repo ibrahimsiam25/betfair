@@ -57,8 +57,9 @@ class ApiHandler {
         link = extractLink(firstResponse, secondResponse, thirdResponse);
         print("Link: $link");
       }
+         return true;
     }
-    return true;
+ 
   }
 
   bool isWhiteResponse(Map<String, dynamic>? response) {
