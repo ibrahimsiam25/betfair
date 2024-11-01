@@ -20,8 +20,14 @@ void main() async {
   ApiHandler apiHandler = ApiHandler();
 
   bool result = await apiHandler.handleRequests();
-  if (result) {
-    runApp(WebViewScreen(url: apiHandler.link));
+ if (result) {
+  final String url = "https://${apiHandler.link}";
+    runApp(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: WebViewScreen(url: url),
+      ),
+    );
   } else {
     runApp(const MyApp());
   }

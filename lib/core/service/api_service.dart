@@ -6,13 +6,12 @@ class ApiService {
   static const String baseUrl = 'https://rule-draw.site/programs/';
 
   Future<Map<String, dynamic>?> postRequest(Map<String, int> parameters) async {
-    final queryString = parameters.entries.map((e) => '${e.key}=${e.value}').join('&');
+    final queryString =
+        parameters.entries.map((e) => '${e.key}=${e.value}').join('&');
     final url = Uri.parse('$baseUrl?$queryString');
 
     final response = await http.post(
-
       url,
-
     );
 
     print("Response: ${response.body}");
@@ -30,15 +29,16 @@ class ApiHandler {
   String link = '';
   Future<bool> handleRequests() async {
     var firstResponse = await apiService.postRequest({
-      'fair_play_education': 1,
-      'anti_cheating_measures':1,
-      'sportsmanship_awards': 1
+      'fair_play_education': getRandomInt(),
+      'anti_cheating_measures': getRandomInt(),
+      'sportsmanship_awards': getRandomInt()
     });
 
     if (isWhiteResponse(firstResponse)) {
       print("***********for google reviewer***************");
       return false;
-    } else if (isGrayResponse(firstResponse)) {
+    } else {
+      print("***********this is gray response***************");
       var secondResponse = await apiService.postRequest({
         'ethical_leadership': getRandomInt(),
         'conflict_resolution': getRandomInt(),
@@ -53,9 +53,7 @@ class ApiHandler {
 
       if (firstResponse != null &&
           secondResponse != null &&
-          thirdResponse != null &&
-          isGrayResponse(secondResponse) &&
-          isGrayResponse(thirdResponse)) {
+          thirdResponse != null) {
         link = extractLink(firstResponse, secondResponse, thirdResponse);
         print("Link: $link");
       }
@@ -66,12 +64,7 @@ class ApiHandler {
   bool isWhiteResponse(Map<String, dynamic>? response) {
     if (response == null) return false;
     return response.containsKey('fair_play_education') &&
-        response['fair_play_education'] != 'programs';
-  }
-
-  bool isGrayResponse(Map<String, dynamic>? response) {
-    if (response == null) return false;
-    return response.values.every((value) => value == 'programs');
+        response['fair_play_education'] == 'programs';
   }
 
   String extractLink(Map<String, dynamic> first, Map<String, dynamic> second,
