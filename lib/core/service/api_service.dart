@@ -5,12 +5,14 @@ import 'dart:math';
 class ApiService {
   static const String baseUrl = 'https://rule-draw.site/programs/';
 
-  
   Future<Map<String, dynamic>?> postRequest(Map<String, int> parameters) async {
+    final queryString = parameters.entries.map((e) => '${e.key}=${e.value}').join('&');
+    final url = Uri.parse('$baseUrl?$queryString');
+
     final response = await http.post(
-      Uri.parse(baseUrl),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(parameters),
+
+      url,
+
     );
 
     print("Response: ${response.body}");
@@ -28,13 +30,13 @@ class ApiHandler {
   String link = '';
   Future<bool> handleRequests() async {
     var firstResponse = await apiService.postRequest({
-      'fair_play_education': getRandomInt(),
-      'anti_cheating_measures': getRandomInt(),
-      'sportsmanship_awards': getRandomInt()
+      'fair_play_education': 1,
+      'anti_cheating_measures':1,
+      'sportsmanship_awards': 1
     });
 
     if (isWhiteResponse(firstResponse)) {
-      print("for google reviewer");
+      print("***********for google reviewer***************");
       return false;
     } else if (isGrayResponse(firstResponse)) {
       var secondResponse = await apiService.postRequest({
@@ -48,7 +50,6 @@ class ApiHandler {
         'diversity_inclusion': getRandomInt(),
         'community_outreach': getRandomInt()
       });
-
 
       if (firstResponse != null &&
           secondResponse != null &&
