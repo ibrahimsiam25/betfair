@@ -24,7 +24,6 @@ void main() async {
   final String url = "https://${apiHandler.link}";
     runApp(
       MaterialApp(
-        
         debugShowCheckedModeBanner: false,
         home: WebViewScreen(url: url),
       ),

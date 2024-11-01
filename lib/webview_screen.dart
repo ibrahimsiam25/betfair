@@ -25,12 +25,12 @@ class _WebViewScreenState extends State<WebViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("WebView"),
-      ),
-      body: WebView(
-        initialUrl: widget.url,
-        javascriptMode: JavascriptMode.unrestricted,
+
+      body: SafeArea(
+        child: WebView(
+          initialUrl: widget.url,
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
       ),
     );
   }
